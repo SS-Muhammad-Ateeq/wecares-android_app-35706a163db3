@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.wallet.WalletFragmentViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/account_type_tv"
+            style="@style/ContentText_Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_small_corners_button_colorwhite"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginEnd="@dimen/spacing_little"
+            android:drawableEnd="@drawable/ic_arrow_spinner"
+            android:drawablePadding="@dimen/spacing_small"
+            android:onClick="@{() -> viewModel.showWallets()}"
+            android:padding="@dimen/spacing_normal"
+            android:layout_margin="@dimen/spacing_huge"
+            android:text="@string/please_select_a_wallet"
+            android:gravity="center"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_gravity="center_vertical"
+                android:background="@color/colorAccent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_normal"
+                        android:src="@drawable/ic_pay_in_cash" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/service_users_txt"
+                            style="@style/ContentText_White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_in_cash"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/font_large" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cash_txt"
+                            style="@style/ContentText_White_large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 JOD" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_normal"
+                        android:src="@drawable/ic_pay_by_credit" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/services_caregiver_txt"
+                            style="@style/ContentText_White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pay_by_credit"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/font_large" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/credit_txt"
+                            style="@style/ContentText_White_large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 JOD" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/colorAccent"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ContentText_White_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:text="@string/total_amount_of_orders" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/total_amount_txt"
+                    style="@style/ContentText_White_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="0 JOD" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/colorAccent"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ContentText_White_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:text="@string/balance" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/balance_txt"
+                    style="@style/ContentText_White_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="0 JOD" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:background="@color/colorAccent"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dip"
+                android:background="@color/white">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ok_btn"
+                    style="@style/ContentText_White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners_button_coloraccent"
+                    android:text="@string/show_payments_history"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/spacing_xhuge"
+                    android:padding="@dimen/spacing_normal"
+                    android:onClick="@{() -> viewModel.paymentHistoryClicked()}"
+
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

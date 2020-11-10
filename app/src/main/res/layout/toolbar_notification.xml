@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar xmlns:tool="http://schemas.android.com/tools"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+        app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:titleTextAppearance="@style/ToolbarTitle">
+        <!--android:background="?attr/colorPrimary"-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true">
+
+                <ImageButton
+                    android:id="@+id/toolbar_notification_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:contentDescription="@string/notification"
+                    android:padding="@dimen/spacing_tiny"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_notifications_white_36dp" />
+
+                <TextView
+                    android:id="@+id/toolbar_notificationNum_tv"
+                    style="@style/ContentText_White"
+                    android:layout_width="@dimen/spacing_large"
+                    android:layout_height="@dimen/spacing_large"
+                    android:background="@drawable/notification_shape"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    tool:text="15" />
+
+
+            </FrameLayout>
+            <ImageButton
+                android:id="@+id/toolbar_schedule_btn"
+                android:layout_width="35dip"
+                android:layout_height="35dip"
+                android:background="@null"
+                android:contentDescription="@string/schedule"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/spacing_tiny"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_schedule_white"
+                android:layout_margin="@dimen/spacing_normal"
+                />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                style="@style/ContentText_White_large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+
+            <!--&lt;!&ndash;This view is Toolbar's bottom line-->
+            <!--It's hidden by default so need to show it when needed&ndash;&gt;-->
+            <!--<View-->
+            <!--android:id="@+id/toolbar_line"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1.5dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--android:visibility="gone" />-->
+
+        </RelativeLayout>
+        
+    </androidx.appcompat.widget.Toolbar>
+</layout>

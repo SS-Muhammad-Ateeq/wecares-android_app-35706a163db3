@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.webview.WebViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/default_padding_margin">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/PageTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_normal_smaller"
+            android:text="@{viewModel.title}" />
+
+        <LinearLayout
+            android:id="@+id/ll_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_title"
+            android:layout_marginBottom="@dimen/spacing_normal_smaller">
+
+            <WebView
+                android:id="@+id/wv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/spacing_tiny"
+                android:clickable="true"
+                android:focusableInTouchMode="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:background="@color/white"
+            android:padding="@dimen/spacing_little"
+            android:id="@+id/bottomLayout"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/terms_accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_corners_button_coloraccent"
+                android:padding="@dimen/spacing_small"
+                android:paddingStart="@dimen/spacing_xhuge"
+                android:paddingEnd="@dimen/spacing_xhuge"
+                android:text="@string/accept"
+                android:textColor="@color/white"
+                android:onClick="@{() -> viewModel.acceptClicked()}"
+
+                />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+
+</layout>

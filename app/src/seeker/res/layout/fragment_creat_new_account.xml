@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mindorks.framework.mvvm.ui.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.auth.registration.info.RegistrationInfoViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/parent_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/bottom_parent_ll"
+                android:layout_alignParentTop="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/registration_account_type_tv"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:drawableStart="@drawable/ic_organization"
+                        android:drawableEnd="@drawable/ic_arrow_spinner"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.showAccountTypes()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/account_type" />
+
+                    <include layout="@layout/separator_view" />
+
+
+                    <!--<androidx.appcompat.widget.AppCompatTextView-->
+                    <!--android:id="@+id/registration_contactPerson_tv"-->
+                    <!--style="@style/ContentText_Black"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:drawableStart="@drawable/ic_avatar_blue"-->
+                    <!--android:drawableEnd="@drawable/ic_arrow_spinner"-->
+                    <!--android:drawablePadding="@dimen/spacing_small"-->
+                    <!--android:padding="@dimen/spacing_normal"-->
+                    <!--android:text="@string/contact_person" />-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/firstName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:hint="@string/first_name"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}" />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/middleName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:hint="@string/middle_name_optional" />
+                            <!--app:validateEmpty="@{true}"-->
+                            <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/lastName_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/last_name"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/registration_email_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawableStart="@drawable/ic_email_blue"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_countryOfService_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_countryOfService_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_flag"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.countriesClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/country_of_service_seeker" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_city_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_city_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_location"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.citiesClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/city_optional" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/countryCode_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.rilixtech.CountryCodePicker
+                                android:id="@+id/countryCode_picker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/spacing_small"
+                                android:background="@color/white"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/country_code"
+                                app:ccp_showFlag="true"
+                                app:ccp_textSize="@dimen/font_xlarge" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/registration_mobileNumber_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/mobile_number"
+                                android:inputType="phone"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!--<com.google.android.material.textfield.TextInputLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textColorHint="@color/gray"-->
+                    <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+                    <!--&lt;!&ndash;style="@style/TextStyle"&ndash;&gt;-->
+                    <!--<com.google.android.material.textfield.TextInputEditText-->
+                    <!--android:id="@+id/registration_phoneNumber_edt"-->
+                    <!--style="@style/ContentText_Black"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:cursorVisible="true"-->
+                    <!--android:drawableStart="@drawable/ic_call_phone"-->
+                    <!--android:drawablePadding="@dimen/spacing_small"-->
+                    <!--android:hint="@string/phone_number"-->
+                    <!--android:inputType="textPhonetic"-->
+                    <!--android:padding="@dimen/spacing_normal"-->
+                    <!--app:validateEmpty="@{true}"-->
+                    <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+                    <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:layout_marginStart="@dimen/spacing_normal"-->
+                    <!--android:layout_marginEnd="@dimen/spacing_normal"-->
+                    <!--android:background="@color/gray3" />-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/gender_membership_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/gender_membership_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/employees"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.genderClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/gender" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_birthdate_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_birthdate_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/cake"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.birthDateClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/birthe_date" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_nationality_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_nationality_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_flag"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.nationalityClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/nationality" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_membership_type_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_membership_type_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_memberahip_type"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.membershipTypeClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/membership_type" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/membership_code_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/organization_code"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                        app:passwordToggleEnabled="true">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/registration_password_edt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:digits="@string/allowed_password_characters"
+                            android:drawableStart="@drawable/ic_lock_blue"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/password_6_characters"
+                            android:inputType="textPassword"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}"
+                            app:validateRegex='@{"^.{6,}$"}'
+                            app:validateRegexMessage="@{@string/error_invalid_password}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:id="@+id/bottom_parent_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#FBFBFB"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal_smaller">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <!--<androidx.appcompat.widget.AppCompatCheckBox-->
+                        <!--android:id="@+id/termsCheckBox"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:backgroundTint="@color/darkerGray"-->
+                        <!--android:checked="@{viewModel.isTermsAccebted}"-->
+                        <!--android:onCheckedChanged="@{(switch, checked) -> viewModel.onCheckedChanged(checked)}" />-->
+
+                    <ImageView
+                        android:id="@+id/termsCheckedImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_terms_unchecked"
+                        android:layout_gravity="center"
+                        android:onClick="@{() -> viewModel.termsConditionsClicked()}"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.termsConditionsClicked()}"
+                        android:text="@string/terms_and_conditions"
+                        android:textColor="@color/text_blue"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/ContentText_Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/spacing_huge"
+                    android:layout_marginEnd="@dimen/spacing_huge"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:background="@drawable/rounded_corners_button_coloraccent"
+                    android:gravity="center"
+                    android:onClick="@{() -> viewModel.registerClicked()}"
+                    android:padding="@dimen/spacing_small"
+                    android:paddingStart="@dimen/spacing_xhuge"
+                    android:paddingEnd="@dimen/spacing_xhuge"
+                    android:text="@string/register"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+
+</layout>

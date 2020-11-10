@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.schduler.CaregiverServicesSchedulerViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/daysLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_bar_height"
+                android:background="@color/colorAccent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/ic_calender"
+                    android:drawablePadding="@dimen/spacing_small"
+                    android:gravity="center"
+                    android:text="@string/choose_the_days_of_care"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/middleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/daysLayout"
+                android:background="@color/light_gray"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/available_24_hours_a_day"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="right"
+                        android:id="@+id/fullTimeSwitch" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:background="@color/gray3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/sameTimeSelectionLayout"
+                    >
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add Schedule"
+                        android:onClick="btnAdd"
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/timeOfCareLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:padding="5dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/time_of_care"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/timesTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.timesOfCaresSelected()}"
+                            android:text="@string/different_times" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:background="@color/gray3" />
+
+                    <RelativeLayout
+                        android:id="@+id/sameTimeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:padding="5dip">
+
+                        <TextView
+                            android:id="@+id/startDateLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/start_times"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/startDateTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_toEndOf="@id/startDateLabel"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.sameStartDateClicked()}"
+                            android:text="@string/select" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_huge"
+                            android:layout_toStartOf="@id/endDateTV"
+                            android:text="@string/end_times"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/endDateTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.sameEndDateClicked()}"
+                            android:text="@string/select" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/middleLayout"
+                android:id="@+id/scheduledDaysScrollView"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                >
+                <LinearLayout
+                    android:id="@+id/bottomLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/day"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/start"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/end"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scheduledDayRecyclerView"/>
+                    <!--Sunday Start-->
+
+                    <LinearLayout
+                        android:id="@+id/sundayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/sunday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(1)}"
+                            android:tag="start_1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(1)}"
+                            android:tag="end_1"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/sundayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/sunday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(11)}"
+                            android:tag="start_11" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(11)}"
+                            android:tag="end_11"
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/sundayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/sunday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(12)}"
+                            android:tag="start_12" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sundaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(12)}"
+                            android:tag="end_12"
+
+                            />
+                    </LinearLayout>
+                    <!--Sunday End-->
+                    <!--Monday Start-->
+                    <LinearLayout
+                        android:id="@+id/mondayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/monday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(2)}"
+                            android:tag="start_2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(2)}"
+                            android:tag="end_2"
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/mondayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/monday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(21)}"
+                            android:tag="start_21" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(21)}"
+                            android:tag="end_21"
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/mondayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/monday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(22)}"
+                            android:tag="start_22" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/mondaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(22)}"
+                            android:tag="end_22"
+
+                            />
+                    </LinearLayout>
+                    <!--Monday End-->
+                    <!--Tuesday Start-->
+                    <LinearLayout
+                        android:id="@+id/tuesdayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tuesday"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(3)}"
+                            android:tag="start_3"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(3)}"
+                            android:tag="end_3" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/tuesdayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tuesday"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(31)}"
+                            android:tag="start_31"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(31)}"
+                            android:tag="end_31" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/tuesdayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/tuesday"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(32)}"
+                            android:tag="start_32"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesdaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(32)}"
+                            android:tag="end_32" />
+                    </LinearLayout>
+                    <!--Tuesday End-->
+                    <!--Wednesday Start-->
+                    <LinearLayout
+                        android:id="@+id/wednesdayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/wednesday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(4)}"
+                            android:tag="start_4" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(4)}"
+                            android:tag="end_4" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/wednesdayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/wednesday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(41)}"
+                            android:tag="start_41" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(41)}"
+                            android:tag="end_41" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/wednesdayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/wednesday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(42)}"
+                            android:tag="start_42" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesdaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(42)}"
+                            android:tag="end_42" />
+                    </LinearLayout>
+                    <!--Wednesday End-->
+                    <!--Thursday Start-->
+                    <LinearLayout
+                        android:id="@+id/thursdayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/thursday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(5)}"
+                            android:tag="start_5" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(5)}"
+                            android:tag="end_5" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/thursdayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/thursday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(51)}"
+                            android:tag="start_51" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(51)}"
+                            android:tag="end_51" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/thursdayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/thursday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(52)}"
+                            android:tag="start_52" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursdaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(52)}"
+                            android:tag="end_52" />
+                    </LinearLayout>
+                    <!--Thursday End-->
+                    <!--Friday Start-->
+                    <LinearLayout
+                        android:id="@+id/fridayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/friday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(6)}"
+                            android:tag="start_6" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(6)}"
+                            android:tag="end_6" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/fridayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/friday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridaytimeslot1StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(61)}"
+                            android:tag="start_61" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridaytimeslot1EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(61)}"
+                            android:tag="end_61" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/fridayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/friday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(62)}"
+                            android:tag="start_62" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/fridaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(62)}"
+                            android:tag="end_62" />
+                    </LinearLayout>
+                    <!--Friday End-->
+                    <!--Saturday Start-->
+                    <LinearLayout
+                        android:id="@+id/saturdayLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/saturday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdayStartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(7)}"
+                            android:tag="start_7" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdayEndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(7)}"
+                            android:tag="end_7" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/saturdayLayouttimeslot1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/saturday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdayStartTVtimeslot1"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(71)}"
+                            android:tag="start_71" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdayEndTVtimeslot1"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(71)}"
+                            android:tag="end_71" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/saturdayLayouttimeslot2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/saturday" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdaytimeslot2StartTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayStartDateClicked(72)}"
+                            android:tag="start_72" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturdaytimeslot2EndTV"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:onClick="@{(v) -> viewModel.dayEndDateClicked(72)}"
+                            android:tag="end_72" />
+                    </LinearLayout>
+                    <!--Satruday End-->
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/middleLayout"
+                android:id="@+id/allDaysScrollView"
+                android:visibility="gone"
+                >
+                <LinearLayout
+                    android:id="@+id/allDaysBottomLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/day" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Available 24 hours" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/sunday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/monday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/tuesday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/wednesday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/thursday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/friday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/saturday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/spacing_big"
+                android:layout_marginTop="@dimen/week_day_margin_top"
+                android:layout_marginEnd="@dimen/spacing_big"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sundayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(1)}"
+                    android:text="@string/su"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/monBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(2)}"
+                    android:text="@string/mo"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tuesdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(3)}"
+                    android:text="@string/tu"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/wendsdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(4)}"
+                    android:text="@string/we"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/thursdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(5)}"
+                    android:text="@string/th"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fridayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(6)}"
+                    android:text="@string/fr"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/saturdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(7)}"
+                    android:text="@string/sa"
+                    android:textSize="@dimen/font_small" />
+            </LinearLayout>
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/address_looking_up"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

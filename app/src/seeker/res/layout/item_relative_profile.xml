@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.relative.RelativeProfileItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:background="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/border_width_bigger"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/semi_gray"
+        app:strokeWidth="@dimen/border_width">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_tiny"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_small">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/relative_user_img"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:onClick="@{() -> viewModel.onImageClicked()}"
+                android:src="@drawable/ic_image_placeholder"
+                app:civ_border_color="@null"
+                app:civ_border_width="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_relationName_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:text="@{viewModel.relativeNameTitle}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="My Father" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_name_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_little"
+                android:layout_marginTop="@dimen/spacing_little"
+                android:gravity="center_vertical"
+                android:text="@{viewModel.relativeRelationshipTitle}"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_relationName_txt"
+                tools:text="Osama saeed " />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_year_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_little"
+                android:layout_marginTop="@dimen/spacing_little"
+                android:text="@{viewModel.relativeYearTitle}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_name_txt"
+                tools:text="45 Years" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_gender_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:text="@{viewModel.relativeGenderTitle}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBaseline_toBaselineOf="@id/item_year_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_year_txt"
+                tools:text="45 Years" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_phone_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:text="@{viewModel.relativePhoneTitle}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBaseline_toBaselineOf="@id/item_gender_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="+962 791234567" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/item_checkedStatus_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox"
+                android:checked="@{safeUnbox(viewModel.relativeCheckedStatusCheckbox)}"
+                android:gravity="center|end"
+                android:onClick="@{() -> viewModel.onCheckedClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/itemDelete_img"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> viewModel.onDeleteClicked()}"
+                android:src="@drawable/ic_delete_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_phone_txt" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/itemEdit_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:contentDescription="@string/app_name"
+                android:onClick="@{() -> viewModel.onEditClicked()}"
+                android:src="@drawable/ic_edit"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/itemDelete_img" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

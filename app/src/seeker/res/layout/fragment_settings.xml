@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.settings.SettingsViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/parent_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/settings_notification_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/notification" />
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/settings_notification_switch"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_about_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.aboutUsClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/about_the_app" />
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_share_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.shareAppClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/share_wecare_app" />
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_rate_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.rateUsClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/rate_us" />
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_contact_us_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.contactUSClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/contact_us" />
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_terms_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.termsConditions()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/terms_and_conditions" />
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_privacyPolice_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.privacyPolicyClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/privacy_police" />
+
+                    <include layout="@layout/separator_view" />
+
+
+                    <LinearLayout
+                        android:id="@+id/settings_language_parentLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/language" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/settings_selectedLanguage_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.onChangeLanguageClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/english"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/settings_help_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/contact_customer_support"
+                        android:onClick="@{() -> viewModel.onContactSupportClicked()}"
+                        />
+
+                    <include layout="@layout/separator_view" />
+
+
+                    <RelativeLayout
+                        android:id="@+id/settings_password_parentLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/spacing_normal_bigger"
+                            android:text="@string/changepassword" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/settings_passwordButton_txt"
+                            style="@style/ContentText_White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:background="@drawable/rounded_corners_button_coloraccent"
+                            android:paddingStart="@dimen/spacing_normal"
+                            android:paddingTop="@dimen/spacing_little"
+                            android:paddingEnd="@dimen/spacing_normal"
+                            android:paddingBottom="@dimen/spacing_little"
+                            android:text="@string/change"
+                            tools:ignore="RelativeOverlap"
+                       android:onClick="@{() -> viewModel.changePasswordClicked()}"/>
+
+                    </RelativeLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <RelativeLayout
+                        android:id="@+id/settings_logout_parentLinear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="@dimen/spacing_normal_bigger"
+                            android:text="@string/logout" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/settings_logoutButton_txt"
+                            style="@style/ContentText_White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:background="@drawable/rounded_corners_button_coloraccent"
+                            android:onClick="@{() -> viewModel.logoutClicked()}"
+                            android:paddingStart="@dimen/spacing_normal"
+                            android:paddingTop="@dimen/spacing_little"
+                            android:paddingEnd="@dimen/spacing_normal"
+                            android:paddingBottom="@dimen/spacing_little"
+                            android:text="@string/logout"
+                            tools:ignore="RelativeOverlap" />
+
+                    </RelativeLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

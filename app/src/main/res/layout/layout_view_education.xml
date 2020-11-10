@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collageNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Al Palqa applied university" />
+
+    <include layout="@layout/seperator_view_with_margins" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/educationDegreeTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Good" />
+    <include layout="@layout/seperator_view_with_margins" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/specializationTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Good" />
+    <include layout="@layout/separator_view"
+        />
+
+</LinearLayout>

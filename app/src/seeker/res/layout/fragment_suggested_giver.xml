@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.search_giver.SearchGiverViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/suggested_confirm_btn"
+                android:layout_alignParentTop="true"
+                android:padding="@dimen/spacing_little">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/suggested_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:adapter="@{viewModel.searchGiverObservableArrayList}"
+                    tools:listitem="@layout/item_giver" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/suggested_confirm_btn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/spacing_xhuge"
+                android:layout_marginEnd="@dimen/spacing_xhuge"
+                android:onClick="@{() -> viewModel.onGiverPicked()}"
+                android:padding="@dimen/spacing_small"
+                android:text="@string/confirm"
+                android:textStyle="bold"
+                android:visibility="@{viewModel.isListItemSelected ? View.VISIBLE : View.GONE}"
+                app:backgroundTint="@color/colorAccent"
+                app:cornerRadius="@dimen/radius_normal" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mindorks.framework.mvvm.ui.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.login.LoginViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_skip_txt"
+                style="@style/ContentText_White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:onClick="@{() -> viewModel.openMainActivity()}"
+                android:padding="@dimen/spacing_normal"
+                android:text="@string/skip"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_xhuge"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_lock_big" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/login_to_your_account"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_larger" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_xhuge"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:layout_marginBottom="@dimen/spacing_xhuge"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:backgroundTint="@color/white">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_avatar"
+                            android:drawablePadding="@dimen/spacing_normal"
+                            android:hint="@string/email_or_mobile_number"
+                            android:inputType="text"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            app:backgroundTint="@color/white"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/error_username}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/white"
+                        app:backgroundTint="@color/white"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_login_lock_small"
+                            android:drawablePadding="@dimen/spacing_normal"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            app:backgroundTint="@color/white"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/error_password}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:id="@+id/arabic_tutorial_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_normal"
+                        android:background="@drawable/rounded_corners_button_red"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.onServerLoginClick()}"
+                        android:padding="@dimen/spacing_normal_smaller"
+                        android:text="@string/sign_in"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_large" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal_smaller"
+                        android:onClick="@{() -> viewModel.openForgetPassword()}"
+                        android:text="@string/forgot_password_login"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_large" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_big"
+                        android:onClick="@{() -> viewModel.openForgetPassword()}"
+                        android:text="@string/or_sign_in_by"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_large" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.onFacebookClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:src="@drawable/ic_facebook_new" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_small"
+                            android:visibility="gone"
+                            android:onClick="@{() -> viewModel.onGoogleClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:src="@drawable/ic_google_new" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.onTwitterClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:src="@drawable/ic_twitter_new" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#053453"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal_bigger">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/new_in_wecare"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_large" />
+
+                <TextView
+                    android:id="@+id/createAccountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/create_new_account"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_larger" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+
+</layout>

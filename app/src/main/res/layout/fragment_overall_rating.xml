@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.rating.overall.OverallRatingFragmentViewModel" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_huge"
+                style="@style/ContentText_White"
+                android:text="@string/evaluation" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_large"
+                android:background="@drawable/border_gray_transparent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/commitment_to_the_appointment"
+                    android:textSize="@dimen/font_large"
+                    android:id="@+id/firstTV"/>
+
+                <RatingBar
+                    android:id="@+id/commitment_to_the_appointment_ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:numStars="5"
+                    android:progressTint="@color/white"
+                    android:stepSize="1"
+                    tools:rating="3" />
+
+                <include layout="@layout/separator_view"></include>
+
+                <TextView
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/location_readiness"
+                    android:textSize="@dimen/font_large"
+                    android:id="@+id/secondTV"/>
+
+                <RatingBar
+                    android:id="@+id/location_readiness_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:numStars="5"
+                    android:progressTint="@color/white"
+                    android:stepSize="1"
+                    tools:rating="3" />
+
+                <include layout="@layout/separator_view"></include>
+
+                <TextView
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/providing_customized_tools"
+                    android:textSize="@dimen/font_large"
+                    android:id="@+id/thirdTV"/>
+
+                <RatingBar
+                    android:id="@+id/providing_customized_tools_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:numStars="5"
+                    android:progressTint="@color/white"
+                    android:stepSize="1"
+                    tools:rating="3" />
+
+                <include layout="@layout/separator_view" />
+
+                <TextView
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/hospitality_literature"
+                    android:textSize="@dimen/font_large"
+                    android:id="@+id/forthTV"/>
+
+                <RatingBar
+                    android:id="@+id/hospitality_literature_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:numStars="5"
+                    android:progressTint="@color/white"
+                    android:stepSize="1"
+                    tools:rating="3" />
+
+                <include layout="@layout/separator_view" />
+                <TextView
+                    style="@style/TextStyle.Heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/address_accuracy"
+                    android:textSize="@dimen/font_large"
+                    android:id="@+id/fifthTV"/>
+
+                <RatingBar
+                    android:id="@+id/address_accuracy_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:numStars="5"
+                    android:progressTint="@color/white"
+                    android:stepSize="1"
+                    tools:rating="3"
+                    />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CommonTextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_little"
+                android:layout_marginEnd="@dimen/spacing_little"
+                android:gravity="center"
+                android:textColorHint="@color/gray"
+                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:id="@+id/descriptionLayout">
+
+                <!--style="@style/TextStyle"-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:cursorVisible="true"
+                    android:drawablePadding="@dimen/spacing_small"
+                    android:hint="@string/description"
+                    android:inputType="textMultiLine"
+                    android:layout_margin="@dimen/spacing_large"
+                    android:lines="3"
+                    app:validateEmpty="@{true}"
+                    app:validateEmptyMessage="@{@string/general_required_field}"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_xhuge"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_normal"
+                android:layout_margin="@dimen/spacing_normal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancel_btn"
+                    style="@style/ContentText_White"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corners_button_coloraccent"
+                    android:onClick="@{() -> viewModel.exitClicked()}"
+                    android:text="@string/close" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ok_btn"
+                    style="@style/ContentText_White"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corners_button_coloraccent"
+                    android:text="@string/rate"
+                    android:onClick="@{() -> viewModel.nextClicked()}"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

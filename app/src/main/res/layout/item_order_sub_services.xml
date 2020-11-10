@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.order.sub.OrderSubServicesItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_small">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_subtitle_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/item_checkedStatus_checkbox"
+                android:gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:padding="@dimen/spacing_small"
+                android:text="@{viewModel.serviceNameTitle}"
+                tools:text="Sub Services" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/item_checkedStatus_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:button="@drawable/checkbox"
+                android:checked="@{safeUnbox(viewModel.subServiceCheckedStatusCheckbox)}"
+                android:gravity="center|end"
+                android:onClick="@{() -> viewModel.onCheckedClick()}" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray3" />
+    </LinearLayout>
+
+</layout>

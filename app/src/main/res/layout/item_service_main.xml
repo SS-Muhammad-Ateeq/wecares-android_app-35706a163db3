@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.sub.ServicesItemViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_background_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_tiny"
+            android:layout_marginBottom="@dimen/spacing_tiny"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> viewModel.onItemClick()}"
+            android:orientation="vertical"
+            app:cardBackgroundColor='@{safeUnbox(viewModel.color), default="#f29b4f"}'
+            app:cardCornerRadius="7dp"
+            app:cardElevation="4dp">
+            <!--app:cardBackgroundColor="#f29b4f"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="100dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_homeIcon_img"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{viewModel.iconUrl}"
+                    android:adjustViewBounds="true"
+                    android:padding="@dimen/spacing_normal_bigger"
+                    tools:src="@drawable/ic_nursing_care" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/item_homeTitle_txt"
+                        style="@style/ContentText_White_large"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="4"
+                        android:paddingTop="@dimen/spacing_small"
+                        android:paddingBottom="@dimen/spacing_small"
+                        android:text="@{viewModel.serviceNameTitle}"
+                        android:textSize="@dimen/font_xlarge"
+                        android:textStyle="bold"
+                        tools:text="Nursing Care" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_home_arrow"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:paddingBottom="@dimen/spacing_small"
+                        android:text="@string/show_all" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_homePic_img"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nursing_care_image"
+                    app:imageUrl="@{viewModel.imageUrl}" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.create_order.CreateOrderActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.CreateOrderViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar" />
+
+            <com.badoualy.stepperindicator.StepperIndicator
+                android:id="@+id/create_stepperIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal_bigger"
+                app:stpi_circleColor="@color/circleColor_gray"
+                app:stpi_labelSize="@dimen/font_small_little"
+                app:stpi_labels="@array/orderStepLabels"
+                app:stpi_lineColor="@color/circleColor_gray"
+                app:stpi_lineDoneColor="@color/circleColor_gray"
+                app:stpi_lineMargin="1dp" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@color/gray3" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <com.wecare.android.ui.custom.NoSwipeViewPager
+                    android:id="@+id/create_viewPager"
+                    android:layout_above="@id/next_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_services"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/spacing_xhuge"
+                    android:layout_marginEnd="@dimen/spacing_xhuge"
+                    android:onClick="@{() -> viewModel.onNextClicked()}"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@string/next"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/radius_normal" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/next_btn"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/spacing_xhuge"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/spacing_xhuge"
+                    android:layout_marginEnd="@dimen/spacing_xhuge"
+                    android:onClick="@{() -> viewModel.goToPreviousService()}"
+                    android:padding="@dimen/spacing_small"
+                    android:text="Add More Services"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/colorAccent"
+                    app:cornerRadius="@dimen/radius_normal" />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+
+</layout>

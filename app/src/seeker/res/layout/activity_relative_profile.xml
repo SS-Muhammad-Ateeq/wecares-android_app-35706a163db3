@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--tools:context=".ui.template.">-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.relative.RelativeProfileViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <include layout="@layout/toolbar" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/relativeProfile_title_txt"
+                    style="@style/ContentText_White_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/spacing_xhuge"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_xhuge"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/to_whom_this_health_care_will_be_provided"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/relativeProfile_addNew_btn"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.addNewRelativeClicked()}"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/add_new_person"
+                    app:cornerRadius="@dimen/radius_large"
+                    app:icon="@drawable/ic_plus" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/relativeProfile_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:adapter="@{viewModel.relativeProfileObservableArrayList}"
+                    tools:listitem="@layout/item_relative_profile" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

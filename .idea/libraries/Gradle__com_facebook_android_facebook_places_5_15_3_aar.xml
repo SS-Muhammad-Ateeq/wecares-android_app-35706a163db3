@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.android:facebook-places:5.15.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cfb63a184d5ae4490b2b13bbaa08da87/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cfb63a184d5ae4490b2b13bbaa08da87/res" />
+      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/da99c43fde81d6a0fcdde6e4899c00bc/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/da99c43fde81d6a0fcdde6e4899c00bc/res" />
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/da99c43fde81d6a0fcdde6e4899c00bc/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-places/5.15.3/6e98233023abb4cedce62d82a4f7cfe5beb0fab2/facebook-places-5.15.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/modules-2/files-2.1/com.facebook.android/facebook-places/5.15.3/6e98233023abb4cedce62d82a4f7cfe5beb0fab2/facebook-places-5.15.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

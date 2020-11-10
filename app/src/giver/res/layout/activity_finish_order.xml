@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.create_order.CreateOrderActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.order.FinishOrderViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/toolbar"
+                    layout="@layout/toolbar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:textColor="@color/gray"
+                    tools:text="23/5/2019" />
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="@dimen/spacing_normal"-->
+                    <!--android:layout_marginEnd="@dimen/spacing_normal"-->
+                    <!--android:padding="@dimen/spacing_normal"-->
+                    <!--android:background="@drawable/rounded_corners_button_coloraccent"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="0dip"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--style="@style/ContentText_White"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_margin="@dimen/spacing_tiny"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="@string/start_time" />-->
+
+                        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--android:id="@+id/startTimeTV"-->
+                            <!--style="@style/ContentText_White"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_margin="@dimen/spacing_tiny"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="@string/start_time"-->
+                            <!--android:textSize="@dimen/font_larger" />-->
+                    <!--</LinearLayout>-->
+
+                    <!--<View-->
+                        <!--android:layout_width="0.5dip"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@color/light_gray" />-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="0dip"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--style="@style/ContentText_White"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_margin="@dimen/spacing_tiny"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="@string/start_time" />-->
+
+                        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--android:id="@+id/finishTimeTV"-->
+                            <!--style="@style/ContentText_White"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_margin="@dimen/spacing_tiny"-->
+                            <!--android:gravity="center"-->
+                            <!--android:text="@string/start_time"-->
+                            <!--android:textSize="@dimen/font_larger" />-->
+
+                    <!--</LinearLayout>-->
+
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_services"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/services"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/addNewTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:drawableLeft="@drawable/ic_add"
+                            android:drawablePadding="@dimen/spacing_tiny"
+                            android:gravity="center"
+                            android:onClick="@{() -> viewModel.addNewService()}"
+                            android:text="@string/add_new_services"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_small"
+
+                            />
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/servicesLayoutHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        android:background="@drawable/rounded_gray_background"
+                        android:orientation="horizontal"
+                        android:padding="10dip">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/service_name" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/duration" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/total" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/durationSubService_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_added_sub_service" />
+
+                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/totalServicesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        android:background="@drawable/border_gray_transparent"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:text="@string/total_amount"
+                            android:textColor="@color/black" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/totalServicesAmountTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:textColor="@color/black"
+                            tools:text="English" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Black_large"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableStart="@drawable/ic_done_payment"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/payment_methods"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/corner_border_gray"
+                        android:padding="@dimen/spacing_normal"
+                        android:layout_margin="@dimen/spacing_normal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/creditCardTV"
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_big"
+                            android:layout_marginEnd="@dimen/spacing_big"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_check_green"
+                            android:text="@string/credit_card"
+                            android:textAlignment="center"
+                            android:onClick="@{() -> viewModel.onCreditClicked()}"
+                            />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray3" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cashTV"
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_big"
+                            android:layout_marginEnd="@dimen/spacing_big"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_un_checked_gray"
+                            android:checked="false"
+                            android:text="@string/cash"
+                            android:textAlignment="center"
+                            android:onClick="@{() -> viewModel.onCashClicked()}"
+                            />
+                    </LinearLayout>
+
+                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/receivedAmountLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+
+                        android:background="@drawable/border_gray_transparent"
+                 >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:text="@string/how_much_you_received"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/amount_edt"
+                            android:layout_width="50dip"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/spacing_huge"
+                            android:inputType="numberDecimal"
+                            android:maxLength="5"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/currency_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            tools:text="JOD"
+                            android:textColor="@color/darkerGray"
+                            android:textSize="@dimen/font_small"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:tools="http://schemas.android.com/tools"
+                        android:id="@+id/changeAmountLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:text="@string/the_change"
+                            android:textColor="@color/black" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/change_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            tools:text="JOD"
+                            android:textColor="@color/darkerGray"
+                            android:textSize="@dimen/font_small"
+                            />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:padding="@dimen/margin_normal"
+                        android:layout_gravity="bottom"
+                        android:id="@+id/bottomLayout">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/cancel_btn"
+                            style="@style/ContentText_Gray"
+                            android:layout_width="0dip"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_gray_transparent"
+                            android:layout_margin="@dimen/margin_normal"
+                            android:onClick="@{() -> viewModel.negativeClicked()}"
+                            android:text="@string/no_i_didn_t_receive" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/accept_btn"
+                            style="@style/ContentText_White"
+                            android:layout_width="0dip"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/margin_normal"
+                            android:background="@drawable/rounded_corners_button_coloraccent"
+                            android:text="@string/yes_i_received"
+                            android:onClick="@{() -> viewModel.onConfirmClicked()}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+
+</layout>

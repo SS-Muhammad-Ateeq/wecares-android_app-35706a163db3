@@ -1,0 +1,338 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.wecare.android"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 2
+        versionName "1.2"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+            // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
+            useProguard false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+            //debug
+//            buildConfigField("String", "BASE_GIVER_URL", "\"http://stg-api-caregiver.wecare-app.org:88/v1/caregiver\"")
+//            buildConfigField("String", "BASE_WECARE_URL", "\"http://stg-api.wecare-app.org:88/v1\"")
+//            buildConfigField("String", "BASE_SEEKER_URL", "\"http://stg-api-careseeker.wecare-app.org:88/v1/careseeker\"")
+            //release                                       http://stage.api-caregiver.wecares.info/
+            buildConfigField("String", "BASE_GIVER_URL", "\"http://stage.api-caregiver.wecares.info/v1/caregiver\"")
+            buildConfigField("String", "BASE_WECARE_URL", "\"http://stage.api.wecares.info/v1\"")
+            buildConfigField("String", "BASE_SEEKER_URL", "\"http://stage.api-careseeker.wecares.info/v1/careseeker\"")
+
+        }
+
+        release {
+            minifyEnabled false
+            useProguard false
+            debuggable false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+            buildConfigField("String", "BASE_GIVER_URL", "\"http://new.api-caregiver.wecares.info/v1/caregiver\"")
+            buildConfigField("String", "BASE_WECARE_URL", "\"http://new.api.wecares.info/v1\"")
+            buildConfigField("String", "BASE_SEEKER_URL", "\"http://new.api-careseeker.wecares.info/v1/careseeker\"")
+        }
+    }
+
+    flavorDimensions "default"
+
+    signingConfigs {
+        giverReleaseConfig {
+            storeFile file("/Users/m.mihyar/Desktop/All_Workspace/Freelance/WeCare2/release_giver/WeCare.jks")
+            storePassword("wecare123")
+            keyAlias "wecare"
+            keyPassword "wecare123"
+        }
+        seekerReleaseConfig {
+            storeFile file("/Users/m.mihyar/Desktop/All_Workspace/Freelance/WeCare2/release_seeker/seekerWeCareKey.jks")
+            storePassword("android_wecare")
+            keyAlias "seekerWeCareAlias"
+            keyPassword "android_wecare"
+        }
+    }
+
+    // If you need to add more flavors, consider using flavor dimensions.
+    productFlavors {
+        def giverSigningVariable = signingConfigs.giverReleaseConfig
+        def seekerSigningVariable = signingConfigs.seekerReleaseConfig
+
+//        seekerMock {
+//            dimension "default"
+//            versionCode 1
+//            versionName "1.0"
+//            applicationIdSuffix = ".seekermock"
+//        }
+        seeker {
+            signingConfig seekerSigningVariable
+            dimension "default"
+            applicationId 'com.wecare.android.seeker'
+            versionCode 17
+            versionName "1.1.3"
+//            versionNameSuffix '.seeker'
+            resValue "string", "file_provider_authority", "com.wecare.android.seeker.provider"
+
+            buildConfigField 'boolean', 'isSeekerFlavor', 'true'
+
+        }
+        giver {
+            signingConfig giverSigningVariable
+            dimension "default"
+            applicationId 'com.wecare.android'
+            versionCode 20
+            versionName '2.1.2'
+            resValue "string", "file_provider_authority", "com.wecare.android.provider"
+
+            buildConfigField 'boolean', 'isSeekerFlavor', 'false'
+
+        }
+//        giverMock {
+//            dimension "default"
+//            applicationId 'com.wecare.android.giver'
+//            versionCode 1
+//            versionName '1.0'
+//            applicationIdSuffix = ".givermock"
+//        }
+    }
+
+    // Remove mockRelease as it's not needed.
+    android.variantFilter { variant ->
+        if (variant.buildType.name == 'release' &&
+                (variant.getFlavors().get(0).name == 'giverMock' || variant.getFlavors().get(0).name == 'seekerMock')) {
+            variant.setIgnore(true)
+        }
+    }
+
+//    dexOptions {
+//        javaMaxHeapSize "2g"
+//    }
+
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    //x
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+
+    //    implementation 'androidx.core:core-ktx:1.1.0-alpha04'
+
+    //dex configurations
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+    // Kotlin
+
+    //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlin_version"
+
+    //    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //    implementation "org.jetbrains.anko:anko-sdk21:$ankoVersion" // sdk19, sdk21, sdk23 are also available
+
+    //    implementation "org.jetbrains.anko:anko-support-v4:$ankoVersion" // In case you need support-v4 bindings
+
+    //    implementation "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion" // For appcompat-v7 bindings
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.junitVersion"
+
+    //    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+
+    //    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+
+    // App's dependencies, including test
+
+    // Support library
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "com.google.android.material:material:$rootProject.ext.googleMaterialVersion"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.ext.supportLibraryVersion"
+    implementation "androidx.cardview:cardview:$rootProject.ext.supportLibraryVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta01'
+    implementation 'androidx.recyclerview:recyclerview-selection:1.0.0'
+    implementation "androidx.vectordrawable:vectordrawable:$rootProject.ext.supportLibraryVersion"
+    implementation "androidx.vectordrawable:vectordrawable-animated:$rootProject.ext.supportLibraryVersion"
+    implementation "com.google.guava:guava:$rootProject.ext.guavaVersion"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+
+    //annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+
+    //implementation 'javax.annotation:jsr250-api:1.0'
+
+    // Architecture Components
+    implementation "androidx.room:room-runtime:$rootProject.ext.roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.ext.roomVersion"
+
+    // view model
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.archLifecycleVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.archLifecycleVersion"
+
+    // Lifecycle architecture components
+
+    //    implementation "android.arch.lifecycle:viewmodel:$rootProject.archLifecycleVersion"
+
+    //Networking lib.
+
+    //    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    //    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    //    implementation 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+
+    //    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    // network
+    implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.ext.rx2FastAndroidNetworking"
+
+    // reactive
+
+    //    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjava2Version"
+
+    //    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+
+    // parser
+    implementation "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+
+    // swipe view
+    implementation "com.mindorks:placeholderview:$rootProject.ext.placeholderviewVersion"
+
+    //circle image
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    // image loading, cutting, picker
+    implementation 'com.github.bumptech.glide:glide:4.3.0'
+
+    //    implementation 'com.github.yalantis:ucrop:2.2.2'
+    implementation 'com.github.jkwiecien:EasyImage:2.1.1'
+
+    //animation button.
+
+    //    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    //progress
+    implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
+
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+
+    // font
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.ext.calligraphyVersion"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    //validator
+    implementation 'com.github.Ilhasoft:data-binding-validator:2.0.0'
+
+    //nybus rx2
+    implementation 'com.mindorks.nybus:nybus-android:1.0.0'
+
+    //jwt decoder
+    implementation 'io.jsonwebtoken:jjwt:0.9.0'
+
+    //stepper
+
+    //dialogs
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    implementation 'com.github.mirrajabi:search-dialog:1.2.3'
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+    //device name
+    implementation 'com.jaredrummler:android-device-names:1.1.9'
+
+    //location picker
+
+    //    implementation('com.schibstedspain.android:leku:6.2.1') {
+
+    //        exclude group: 'com.google.android.gms'
+
+    //        exclude group: 'androidx.appcompat'
+
+    //    }
+
+    //places sdk
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.firebase:firebase-auth:18.1.0'
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'com.google.firebase:firebase-analytics:17.0.0'
+
+    //social login
+    seekerImplementation 'com.facebook.android:facebook-login:[5,6)'
+
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+    // Include all the Twitter APIs
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    // (Optional) Monetize using mopub
+//    seekerImplementation 'com.twitter.sdk.android:twitter-mopub:3.1.1'
+
+
+    //multi view adapter
+    implementation 'dev.ahamed.mva2:adapter:2.0.0-alpha01'
+
+    //country dialog
+    implementation 'com.github.joielechong:countrycodepicker:2.2.0'
+
+    //email intent
+    implementation 'de.cketti.mailto:email-intent-builder:1.0.0'
+    implementation project(':FORTSDKv1.5')
+    api 'com.victor:lib:1.0.1'
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.shamanland:fonticon:0.1.8'
+//    api 'com.android.support:design:27.0.2'
+    api('com.nispok:snackbar:2.11.+') {
+        // exclusion is not necessary, but generally a good idea.
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
+    api 'com.google.guava:guava:19.0'
+    api 'org.bouncycastle:bcprov-jdk16:1.46'
+    api 'commons-codec:commons-codec:1.10'
+    implementation project(':stepperIndicator')
+}
+
+configurations {
+    all*.exclude group: 'com.google.guava', module: 'listenablefuture'
+}

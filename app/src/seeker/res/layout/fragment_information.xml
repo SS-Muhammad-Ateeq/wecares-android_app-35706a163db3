@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.order_info.InformationViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/parent_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                          >
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/ContentText_Black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:paddingStart="@dimen/spacing_normal"
+                                android:paddingEnd="@dimen/spacing_normal"
+                                android:paddingTop="@dimen/spacing_normal"
+                                android:text="@string/add_photos"
+                                android:textAlignment="viewStart" />
+                            <androidx.appcompat.widget.AppCompatTextView
+                                style="@style/ContentText_Black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/spacing_normal"
+                                android:paddingEnd="@dimen/spacing_normal"
+                                android:text="@string/add_photos_disclaimer"
+                                android:textSize="@dimen/font_small"
+                                android:textAlignment="viewStart" />
+                        </LinearLayout>
+
+
+
+
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/addNewImage_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableStart="@drawable/ic_add_image_camera"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.onImagePickerClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/add_photos" />
+
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/attachment_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_attachment_image_view" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/gray3" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Black_large"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/relative_profile_title"
+                        android:textAlignment="viewStart"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:onClick="@{() -> viewModel.onRelativeProfileClicked()}"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/this_appointment_for" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/info_relativeName_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/select"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/countryCode_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.rilixtech.CountryCodePicker
+                                android:id="@+id/countryCode_picker"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/country_code"
+                                app:ccp_showFlag="false"
+                                app:ccp_textSize="@dimen/font_xlarge" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/info_relativeMobileNumber_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/spacing_little"
+                                android:background="@color/white"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/mobile_number"
+                                android:inputType="phone"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                    <!--
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/white"
+                                            android:orientation="horizontal"
+                                            android:textAlignment="center"
+                                            android:weightSum="3">
+                                            &lt;!&ndash;android:visibility="@{viewModel.isRelativeProfileSelected ? View.VISIBLE : View.GONE}"&ndash;&gt;
+
+                                            <androidx.appcompat.widget.AppCompatTextView
+                                                android:id="@+id/info_relativeCountryCode_txt"
+                                                style="@style/ContentText_Black"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center"
+                                                android:layout_weight="1"
+                                                android:drawableEnd="@drawable/ic_arrow_spinner"
+                                                android:drawablePadding="@dimen/spacing_small"
+                                                android:padding="@dimen/spacing_normal"
+                                                tools:text="+962" />
+
+                                            <androidx.appcompat.widget.AppCompatTextView
+                                                android:id="@+id/info_relativeMobileNumber_txt"
+                                                style="@style/ContentText_Black"
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="2"
+                                                android:drawableEnd="@drawable/ic_arrow_right"
+                                                android:drawablePadding="@dimen/spacing_small"
+                                                android:padding="@dimen/spacing_normal"
+                                                android:textAlignment="viewStart"
+                                                tools:text="77723993" />
+                                        </LinearLayout>
+                    -->
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Gray"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/the_caregiver_will_contact_you_on_this_mobile_number"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/text_gray2" />
+                    <!--android:visibility="@{viewModel.isRelativeProfileSelected ? View.VISIBLE : View.GONE}"-->
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_small"
+                        android:background="@color/gray3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:onClick="@{() -> viewModel.onNeedSomeMaterialClicked()}"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/need_some_materials" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/info_needMoreMaterial_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:textAlignment="center"
+                            tools:text="@string/no" />
+                    </LinearLayout>
+
+
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/info_materialDescription_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:hint="@string/medical_supplies_needed"
+                            android:inputType="text"
+                            android:padding="@dimen/spacing_normal"
+                            android:visibility="gone"/>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:onClick="@{() -> viewModel.onSpecialRequestClicked()}"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="2"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/special_request" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/info_specialRequest_txt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:textAlignment="center"
+                            tools:text="" />
+                    </LinearLayout>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/tag_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_small" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/info_moreDescription_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:hint="@string/more_description"
+                        android:inputType="text"
+                        android:padding="@dimen/spacing_normal" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

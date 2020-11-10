@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:layout="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_normal"
+    android:id="@+id/parentLayout">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_gravity="right"
+        android:layout_margin="@dimen/spacing_normal"
+        android:src="@drawable/ic_delete_gray"
+        android:id="@+id/deleteInsurance"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:id="@+id/education_degree_layout">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/insurance_company_TV"
+            style="@style/ContentText_Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableEnd="@drawable/ic_arrow_spinner"
+            android:drawablePadding="@dimen/spacing_small"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/insurance_company_name"
+            />
+        <include layout="@layout/separator_view"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <!--style="@style/TextStyle"-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insurance_type_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:drawablePadding="@dimen/spacing_small"
+            android:hint="@string/insurance_type" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <!--style="@style/TextStyle"-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inssuar_name_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:drawablePadding="@dimen/spacing_small"
+            android:hint="@string/issuer_name" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <!--style="@style/TextStyle"-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insurance_number_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:drawablePadding="@dimen/spacing_small"
+            android:hint="@string/insurance_number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/expDateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_little"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:padding="5dip">
+
+        <TextView
+            android:id="@+id/expDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@string/expiration_date"
+            android:textStyle="bold"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/expiration_date_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/expDateLabel"
+            android:layout_marginStart="@dimen/spacing_huge"
+            android:gravity="center"
+            android:textColorHint="@color/gray"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/selectExpDateTV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                android:drawablePadding="@dimen/spacing_little"
+                android:hint="@string/select" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </RelativeLayout>
+
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="@dimen/spacing_little"
+        android:id="@+id/seperatorView"/>
+
+</LinearLayout>

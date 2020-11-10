@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--tools:context=".ui.template.">-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.search_giver.filter.FilterGiverViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/toolbar" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/gender_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.genderClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/caregiver_gender" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedGender_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.genderClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="Male" />
+                        </LinearLayout>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/age_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.ageClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/preferred_caregiver_age" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedAge_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.ageClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="Ascending" />
+                        </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/price_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.priceClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/price" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedPrice_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.priceClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="Ascending" />
+                        </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/rate_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.rateClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/rate" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedRate_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.rateClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="Ascending" />
+                        </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/yearsExperience_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.yearsOfExperienceClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/years_experience" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedYearsExperience_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.yearsOfExperienceClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="Descending" />
+                        </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/done_btn"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/spacing_huge"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_huge"
+                        android:onClick="@{() -> viewModel.doneSaveClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/done"
+                        app:backgroundTint="@color/colorAccent"
+                        app:cornerRadius="@dimen/radius_large" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/resetAll_btn"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:onClick="@{() -> viewModel.resetAllClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/reset_all_fields"
+                        android:textColor="@color/black"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="@dimen/radius_large" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE, default=gone}" />
+
+    </FrameLayout>
+</layout>

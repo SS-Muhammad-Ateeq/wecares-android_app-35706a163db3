@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--tools:context=".ui.template.">-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.search_giver.SearchGiverViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <include layout="@layout/toolbar" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/search_tabLayout"
+                style="@style/searchSeeker_AppTab"
+                android:layout_width="match_parent"
+                app:tabBackground="@color/colorPrimary"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_below="@id/toolbar"/>
+                <!--app:tabBackground="@drawable/tab_selector" />-->
+            <!--app:tabTextAppearance="@style/AppTab"-->
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/search_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/search_tabLayout"
+                android:background="@color/transparent" />
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

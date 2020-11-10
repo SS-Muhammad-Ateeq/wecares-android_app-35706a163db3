@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.services.UserServicesViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/border_gray_transparent"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:id="@+id/serviceActivationLayout"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/padding_horizontal_small">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/active"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_small"/>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                               android:id="@+id/noOfActive_tv"
+                                android:text="0"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dip"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray3"/>
+                        <LinearLayout
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/padding_horizontal_small">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/under_verification"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_small"/>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:id="@+id/noOfActivation_tv"
+                                android:text="0"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dip"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray3"/>
+                        <LinearLayout
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/padding_horizontal_small">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/not_signed"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_small"
+                                android:gravity="center"/>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:id="@+id/noOfNotSigned_tv"
+                                android:text="0"
+                                android:gravity="center"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dip"
+                        android:background="@color/gray3"/>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/activateNowTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:drawableLeft="@drawable/ic_smile"
+                            android:drawablePadding="@dimen/padding_horizontal"
+                            android:text="@string/new_services_need_activation_from_wecare"
+                            android:textColor="@color/light_gray"
+                            android:textSize="@dimen/font_normal_little"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnActivate"
+                            style="@style/ContentText_White"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dip"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingEnd="@dimen/spacing_small"
+                            android:background="@drawable/rounded_corners_button_coloraccent"
+                            android:onClick="@{() -> viewModel.activateNowClicked()}"
+                            android:text="@string/activate_now" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/activateWarningTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:text="@string/warning_activate_service"
+                    android:textColor="@color/light_gray"
+                    android:textSize="@dimen/font_little_small" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/service_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    app:userServicesAdapter="@{viewModel.mainServiceModelObservableArrayList}"
+                    tools:listitem="@layout/item_service_main_no_image" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+
+</layout>

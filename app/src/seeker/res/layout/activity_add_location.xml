@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--tools:context=".ui.template.">-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.location.LocationViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_gray">
+
+            <include layout="@layout/toolbar" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_location"
+                        android:onClick="@{() -> viewModel.onMapPickerClick()}"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/set_new_location"
+                        android:textStyle="bold" />
+
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/spacing_normal"
+                        tools:context=".ui.map.MapLocationPickerActivity" />
+
+                    <LinearLayout
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/location_name" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/locationName_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/locationName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/set_location_name"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/country_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:onClick="@{() -> viewModel.onCountryClick()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/country" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedCountry_txt"
+                                style="@style/ContentText_Gray"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.onCountryClick()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/select_country"
+                                android:textAlignment="viewEnd" />
+                        </LinearLayout>
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/city_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:onClick="@{() -> viewModel.onCityClick()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/city" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/city_txt"
+                                style="@style/ContentText_Gray"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.onCityClick()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/select_city"
+                                android:textAlignment="viewEnd" />
+                        </LinearLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <LinearLayout
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/location_area" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/area_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/area_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/set_area"
+                                android:inputType="text"/>
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <LinearLayout
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/location_street_name" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/streetName_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/streetName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/set_street_name"/>
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <LinearLayout
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/building_number" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/buildingNumber_layout"
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/buildingNumber_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/set_building_number"
+                                android:maxLength="4"
+                                />
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                    <LinearLayout
+                        style="@android:style/Widget.EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/floor_number" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/floorNumber_layout"
+
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/floorNumber_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/select_floor_number"
+                                android:maxLength="3"/>
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/separator_view" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE, default=gone}" />
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textAppearance="@style/ChipTextApperance"
+    app:chipBackgroundColor="@color/gray3"
+    app:closeIconTint="@null"
+    app:closeIconStartPadding="0dp"
+    app:closeIconEndPadding="0dp"
+    app:closeIcon="@drawable/ic_cancel_grey"
+    app:closeIconEnabled="true"
+    app:closeIconVisible="true" />
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.services.sub_duration.DurationSubServicesItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_small">
+
+
+            <LinearLayout
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_subtitle_txt"
+                    style="@style/ContentText_Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@{viewModel.serviceNameTitle}"
+                    tools:text="Sub Services" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_pricePerHour_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="@{viewModel.pricePerHourTitle}"
+                    android:visibility="gone"
+                    android:textSize="@dimen/font_little_small"
+                    tools:text="Sub Services" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_taxes_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="@{viewModel.taxesDesc}"
+                    android:textSize="@dimen/font_smaller"
+                    tools:text="Sub Services" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_duration_txt"
+                style="@style/ContentText_Black_large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/spacing_small"
+                android:text="@{safeUnbox(viewModel.isDurationInHour) ? viewModel.durationText : @string/one_time}"
+                android:textAlignment="viewEnd"
+                tools:text="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_total_txt"
+                style="@style/ContentText_Black_large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="@dimen/spacing_small"
+                android:text="@{viewModel.calculatedPricePerHourTitle}"
+                android:textAlignment="viewEnd"
+                android:visibility="gone"
+                tools:text="1" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray3"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</layout>

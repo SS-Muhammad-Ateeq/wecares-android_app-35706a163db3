@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.home.sub.details.SubDetailsViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+
+        <include
+            android:id="@+id/toolbar_include"
+            layout="@layout/toolbar_text_center"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar_include"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@drawable/rounded_small_corners_button_colorwhite">
+
+            <!--<androidx.appcompat.widget.AppCompatTextView-->
+            <!--android:id="@+id/subDetails_close_txt"-->
+            <!--style="@style/ContentText_Black"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginBottom="@dimen/spacing_normal"-->
+            <!--android:background="@drawable/radio_border_primary"-->
+            <!--android:clickable="true"-->
+            <!--android:visibility="gone"-->
+            <!--android:focusable="true"-->
+            <!--android:onClick="@{() -> viewModel.onCloseClick()}"-->
+            <!--android:padding="@dimen/spacing_small"-->
+            <!--android:text="@string/general_close"-->
+            <!--android:textAlignment="center" />-->
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/subDetails_createOrder_txt"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:onClick="@{() -> viewModel.onOrderNowClick()}"
+                android:padding="@dimen/spacing_small"
+                android:text="@string/order_now"
+                android:textStyle="bold"
+                app:backgroundTint="@color/colorAccent"
+                app:cornerRadius="@dimen/radius_normal" />
+
+            <LinearLayout
+                android:id="@+id/parent_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/subDetails_createOrder_txt"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subDetails_title_txt"
+                    style="@style/ContentText_White_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/we_care_your_satisfaction" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/subDetails_des_txt"
+                    style="@style/ContentText_Black_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/we_care_your_satisfaction" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--<androidx.core.widget.ContentLoadingProgressBar-->
+    <!--android:id="@+id/address_looking_up"-->
+    <!--style="?android:attr/progressBarStyleLarge"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />-->
+</layout>

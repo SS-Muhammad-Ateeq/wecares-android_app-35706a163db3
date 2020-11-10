@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.order.current.CurrentItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/font_small"
+        android:orientation="vertical"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/order_description_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:text="@{viewModel.requiredServiceTxt}"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:onClick="@{() -> viewModel.onItemClicked()}">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/order_user_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_profile"
+                        app:civ_border_color="@null"
+                        app:civ_border_width="0dp"
+                        app:civ_circle_background_color="@color/light_gray"
+                        android:layout_centerInParent="true"
+                        app:imageUrl="@{viewModel.orderUserImg}"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="20dip"
+                        android:layout_height="20dip"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_favorite"
+                        android:visibility="@{viewModel.isFavorite ? View.VISIBLE : View.GONE}"/>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_name_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textSize="@dimen/font_small"
+                        android:text="@{viewModel.seekerNameTxt}"
+
+                        />
+
+
+                    <RatingBar
+                        android:id="@+id/ratingBarFeedback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:progressTint="@color/colorAccent"
+                        android:stepSize="1"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        tools:rating="3"
+                        app:rating="@{viewModel.rating}"
+                        style="@style/Base.Widget.AppCompat.RatingBar.Indicator"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_date_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@{viewModel.orderDateTimeTxt}"
+                        android:textSize="@dimen/font_small"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_status_txt"
+                        style="@style/ContentText_White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/rounded_corners_button_green"
+                        android:backgroundTint="@{viewModel.orderStatusClr}"
+                        android:padding="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@{viewModel.orderStatusTxt}"
+                        android:textSize="@dimen/font_smaller"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_total_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@{viewModel.orderTotalTxt}"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/spacing_normal"-->
+            <!--android:background="@color/light_gray" />-->
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

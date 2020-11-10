@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mindorks.framework.mvvm.ui.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.webview.activity.WebViewActivityViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar" />
+
+
+        <WebView
+            android:id="@+id/mWebView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_parent_ll"
+            android:layout_below="@id/toolbar"
+            android:background="@color/white" />
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/bottom_parent_ll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:background="#FBFBFB"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical"-->
+            <!--android:padding="@dimen/spacing_normal_bigger">-->
+
+            <!--<TextView-->
+                <!--style="@style/ContentText_White"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:background="@drawable/rounded_corners_button_coloraccent"-->
+                <!--android:padding="@dimen/spacing_small"-->
+                <!--android:paddingStart="@dimen/spacing_xhuge"-->
+                <!--android:paddingEnd="@dimen/spacing_xhuge"-->
+                <!--android:text="@string/accept" />-->
+        <!--</LinearLayout>-->
+
+    </RelativeLayout>
+</layout>

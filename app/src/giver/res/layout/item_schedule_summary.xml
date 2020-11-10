@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.order.scheduled.ScheduleSummaryItemViewModel" />
+    </data>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:onClick="@{() -> viewModel.onItemClicked()}"
+                >
+                <!--android:onClick="@{() -> viewModel.onItemClick()}"-->
+                <View
+                    android:id="@+id/colorView"
+                    android:layout_width="10dip"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/notification_light_orange" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/order_user_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_profile"
+                        android:layout_margin="@dimen/spacing_normal"
+                        app:civ_border_color="@null"
+                        app:civ_border_width="0dp"
+                        app:civ_circle_background_color="@color/light_gray"
+                        app:imageUrl="@{viewModel.orderUserImg}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_name_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        android:text="@{viewModel.orderNameTxt}"
+                        tools:text="@string/name"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/needed_service_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        tools:text="Need Nursing Care for his Father"
+                        android:text="@{viewModel.requiredServiceTxt}"
+
+                        android:textSize="@dimen/font_small" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dip"
+                    android:layout_height="match_parent"
+                    android:background="@color/light_gray"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_date_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        tools:text="2019/06/19"
+                        android:text="@{viewModel.orderDateTxt}"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_little"
+                        android:textSize="@dimen/font_smaller"
+                        android:id="@+id/hour_txt"
+                        tools:text="22:00:00"
+                        android:text="@{viewModel.orderTimeTxt}"
+
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/spacing_normal"-->
+            <!--android:background="@color/light_gray" />-->
+
+        </LinearLayout>
+</layout>

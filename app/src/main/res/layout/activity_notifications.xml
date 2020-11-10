@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.notification.NotificationsViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notifications_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                app:adapter="@{viewModel.notificationModelObservableArrayList}"
+                tools:listitem="@layout/item_notification" />
+
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/remove_notifications_txt"
+            style="@style/ContentText_White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:background="@drawable/rounded_corners_button_coloraccent"
+            android:paddingStart="@dimen/spacing_normal"
+            android:paddingTop="@dimen/spacing_little"
+            android:paddingEnd="@dimen/spacing_normal"
+            android:paddingBottom="@dimen/spacing_little"
+            android:text="@string/clear_all_notifications"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            tools:ignore="RelativeOverlap"/>
+            <!--android:onClick="@{() -> viewModel.changePasswordClicked()}"/>-->
+
+    </FrameLayout>
+
+</layout>

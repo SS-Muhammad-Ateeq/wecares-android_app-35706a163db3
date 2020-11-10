@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.search_giver.suggested.SuggestedGiverItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:background="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="@dimen/border_width_bigger"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/semi_gray"
+        app:strokeWidth="@dimen/border_width">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_tiny"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_small">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/relative_user_img"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{() -> viewModel.onProfileImageClick()}"
+                android:padding="@dimen/spacing_tiny"
+                android:src="@drawable/ic_image_placeholder"
+                app:civ_border_color="@null"
+                app:civ_border_width="0dp"
+                app:imageUrl="@{viewModel.giverImageUrl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/favourite_image"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_favorite"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_relationName_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_little"
+                android:layout_marginEnd="@dimen/spacing_little"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@{viewModel.giverNameTitle}"
+                android:textStyle="bold"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toStartOf="@+id/item_price_txt"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name" />
+
+            <RatingBar
+                android:id="@+id/item_giver_ratingBar"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:isIndicator="false"
+                android:numStars="@{safeUnbox(viewModel.giverRating)}"
+                android:stepSize="1"
+                android:theme="@style/RatingBarSearchGiver"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_relationName_txt"
+                tools:rating="4" />
+
+            <!--<androidx.appcompat.widget.AppCompatTextView-->
+            <!--android:id="@+id/item_name_txt"-->
+            <!--style="@style/ContentText_Black"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="@dimen/spacing_little"-->
+            <!--android:layout_marginTop="@dimen/spacing_little"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:text="@{viewModel.giverNameTitle}"-->
+            <!--android:textStyle="bold"-->
+            <!--android:visibility="gone"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/relative_user_img"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/item_relationName_txt"-->
+            <!--tools:text="Osama saeed " />-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_gender_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@{viewModel.giverGender}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintStart_toEndOf="@+id/relative_user_img"
+                app:layout_constraintTop_toBottomOf="@+id/item_giver_ratingBar"
+                tools:text="Male" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_year_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@{viewModel.giverYears}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBaseline_toBaselineOf="@id/item_gender_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_gender_txt"
+                tools:text="45 Years" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_language_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:text="@{viewModel.giverLanguage}"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBaseline_toBaselineOf="@id/item_year_txt"
+                app:layout_constraintStart_toEndOf="@+id/item_year_txt"
+                tools:text="@string/english" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/item_checkedStatus_checkbox"
+                style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/checkbox"
+                android:checked="@{safeUnbox(viewModel.giverCheckedStatusCheckbox)}"
+                android:gravity="center"
+                android:onCheckedChanged="@{() -> viewModel.onCheckedClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_price_txt" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_giverStatus_txt"
+                style="@style/ContentText_White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@drawable/rounded_corners_button_coloraccent"
+                android:padding="@dimen/spacing_little"
+                android:text="@string/pending"
+                android:textSize="@dimen/font_smaller"
+                android:visibility="gone"
+                app:layout_constraintBaseline_toBaselineOf="@id/item_gender_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_checkedStatus_checkbox" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_price_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.giverPrice}"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

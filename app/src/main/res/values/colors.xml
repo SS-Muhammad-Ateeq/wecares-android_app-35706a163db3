@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#123350</color>
+    <color name="colorPrimaryDark">#123350</color>
+    <color name="colorAccent">#61bfce</color>
+
+    <color name="colorBackground">#F7F7F7</color>
+
+
+    <!--text-->
+    <color name="colorText">#7b7e83</color>
+    <color name="text_blue">#61bfce</color>
+    <color name="text_red">#FF0066</color>
+    <color name="text_white">#f9f9f9</color>
+    <color name="text_black">#212121</color>
+    <color name="text_green">#19d484</color>
+    <color name="text_accent">@color/colorAccent</color>
+    <color name="text_primary">@color/colorPrimary</color>
+    <color name="text_gray">#666666</color>
+    <color name="text_gray2">#a8a9ae</color>
+
+    <!--template colors -->
+    <color name="black_effective">#2a2a2a</color>
+    <color name="shadow">#d0d8dc</color>
+    <color name="translucent_white">#88ffffff</color>
+    <color name="fb">#3b5998</color>
+    <color name="google">#d34836</color>
+
+    <!--Design colors-->
+    <color name="red_dark">#F06423</color>
+    <color name="cyan_light">#c9ebee</color>
+    <color name="cyan">#b5e3e7</color>
+    <color name="cyan_dark">#70BDC6</color>
+    <color name="navy_blue">#214258</color>
+    <color name="navy_blue_dark">#1C3A4E</color>
+    <color name="green">#2bd2a9</color>
+    <color name="light_green">#78DC96</color>
+    <color name="light_blue">#55C8F0</color>
+    <color name="blue_black_dark">#13171d</color>
+    <color name="blue_black_light">#516179</color>
+    <color name="blue_grey_light">#A5B4C8</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#fff44f</color>
+
+    <!-- Basic colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="app_red">#FF0066</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_transparent">#CC000000</color>
+
+    <!-- Gray scale -->
+    <color name="gray">#7e7e7e</color>
+    <color name="gray3">#D8D8D8</color>
+    <color name="gray2">#8E9094</color>
+    <color name="gray4">#555555</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_40">#999999</color>
+    <color name="grey_60">#666666</color>
+    <color name="grey_80">#37474F</color>
+    <color name="grey_90">#263238</color>
+    <color name="grey_95">#1a1a1a</color>
+    <color name="amber_600">#FFB300</color>
+
+    <color name="circleColor_gray">#EAEAEA</color>
+
+
+
+    <!--notifications items colors-->
+    <color name="notification_light_gray">#EAEAEA</color>
+    <color name="notification_light_blue">#37C1D0</color>
+    <color name="notification_light_orange">#FC7F7A</color>
+
+
+
+    <color name="light_gray">#ededed</color>
+    <color name="semi_gray">#979797</color>
+    <color name="dark_gray">#696969</color>
+
+    <color name="lightGray">#F1F1F1</color>
+    <color name="otherLightGray">#F3F3F3</color>
+    <color name="lighterGray">#b35e6167</color>
+    <color name="darkGray">#5e6167</color>
+    <color name="darkerGray">#5D6167</color>
+    <color name="darkGreenGray">#9DBAB7</color>
+
+    <color name="grayDivider">#7A7C81</color>
+    <!-- Grey scales -->
+    <color name="gray200">#EEEEEE</color>
+    <color name="gray300">#E0E0E0</color>
+    <color name="blueGray50">#ECEFF1</color>
+    <color name="blueGray200">#B0BEC5</color>
+    <color name="blueGray300">#90A4AE</color>
+    <color name="blueGray400">#78909C</color>
+    <color name="blueGray500">#607D8B</color>
+
+    <!--custom for views -->
+    <color name="orangeLightBtn">#ed753e</color>
+    <color name="cornercolor">#e4e5e5</color>
+    <color name="blackbg">#5c6167</color>
+    <color name="itembgcolor">#f5f5f5</color>
+    <color name="exchangeratecolor">#dededf</color>
+    <color name="border_line_color">#b8babd</color>
+    <color name="fab_menu_background">#80000000</color>
+    <color name="smartpass_toolbar">#c31233</color>
+    <color name="tutorial_background">#b3000000</color>
+
+    <!--Theme & Accent -->
+    <color name="red500">#F44336</color>
+    <color name="teal100">#B2DFDB</color>
+    <color name="teal500">#009688</color>
+    <color name="cyan900">#006064</color>
+    <color name="lightBlue500">#03A9F4</color>
+
+    <color name="green500">#4CAF50</color>
+
+    <!-- Bubble color -->
+    <color name="default_left_bubble_color">@color/button_material_light</color>
+    <color name="default_right_bubble_color">@color/green500</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/gray3</color>
+
+
+</resources>

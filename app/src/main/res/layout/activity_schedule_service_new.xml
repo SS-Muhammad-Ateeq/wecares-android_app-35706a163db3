@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.schduler.CaregiverServicesSchedulerViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/daysLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_bar_height"
+                android:background="@color/colorAccent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/ic_calender"
+                    android:drawablePadding="@dimen/spacing_small"
+                    android:gravity="center"
+                    android:text="@string/choose_the_days_of_care"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/middleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/daysLayout"
+                android:background="@color/light_gray"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/available_24_hours_a_day"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="right"
+                        android:id="@+id/fullTimeSwitch" />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:background="@color/gray3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/sameTimeSelectionLayout"
+                    >
+                    <RelativeLayout
+                        android:id="@+id/timeOfCareLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:padding="5dip">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/time_of_care"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/timesTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.timesOfCaresSelected()}"
+                            android:text="@string/different_times" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:background="@color/gray3" />
+
+                    <RelativeLayout
+                        android:id="@+id/sameTimeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:padding="5dip">
+
+                        <TextView
+                            android:id="@+id/startDateLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/start_times"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/startDateTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_toEndOf="@id/startDateLabel"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.sameStartDateClicked()}"
+                            android:text="@string/select" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_huge"
+                            android:layout_toStartOf="@id/endDateTV"
+                            android:text="@string/end_times"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/endDateTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_little"
+                            android:onClick="@{() -> viewModel.sameEndDateClicked()}"
+                            android:text="@string/select" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/middleLayout"
+                android:id="@+id/scheduledDaysScrollView"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                >
+                <LinearLayout
+                    android:id="@+id/bottomLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/day"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/start"
+                            android:textStyle="bold"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/end"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/scheduledDayRecyclerView"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/middleLayout"
+                android:id="@+id/allDaysScrollView"
+                android:visibility="gone"
+                >
+                <LinearLayout
+                    android:id="@+id/allDaysBottomLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/day" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Available 24 hours" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/sunday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/monday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/tuesday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/wednesday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/thursday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/friday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/underline"
+                        android:orientation="horizontal"
+                        android:padding="10dip"
+                        >
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/saturday" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:src="@drawable/ic_checked"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="@dimen/spacing_big"
+                android:layout_marginTop="@dimen/week_day_margin_top"
+                android:layout_marginEnd="@dimen/spacing_big"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sundayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(1)}"
+                    android:text="@string/su"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/monBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(2)}"
+                    android:text="@string/mo"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tuesdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(3)}"
+                    android:text="@string/tu"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/wendsdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(4)}"
+                    android:text="@string/we"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/thursdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(5)}"
+                    android:text="@string/th"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/fridayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(6)}"
+                    android:text="@string/fr"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/saturdayBtn"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_dayweek_unselected"
+                    android:onClick="@{(v) -> viewModel.dayItemClicked(7)}"
+                    android:text="@string/sa"
+                    android:textSize="@dimen/font_small" />
+            </LinearLayout>
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/address_looking_up"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.notification.NotificationsItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray3"
+            android:layout_marginStart="@dimen/spacing_huge"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/spacing_small">
+
+
+            <LinearLayout
+                android:id="@+id/item_addParent_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_delete_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:onClick="@{() -> viewModel.ooDeleteClicked()}"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_delete_notification"
+                    android:visibility="gone"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_avatar_img"
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/circle_shape_background_accent"
+                    android:padding="@dimen/spacing_small"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_notifications_white_36dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/item_title_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_normal"
+                            android:layout_marginEnd="@dimen/spacing_normal"
+                            android:text="@{viewModel.notificationTitle}"
+                            android:textSize="@dimen/font_normal_little"
+                            tools:text="Lorem ipsum dolor si Copy" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/item_description_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        android:text="@{viewModel.notificationDescription}"
+                        android:textSize="@dimen/font_small_little"
+                        tools:text="Lorem ipsum dolor si Copy" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_time_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_alignParentBottom="true"
+                android:text="@{viewModel.notificationTime}"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/font_small"
+                android:gravity="end"
+                tools:text="3 hours ago"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/colorView"
+                android:layout_width="10dip"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:background="@color/colorAccent" />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>

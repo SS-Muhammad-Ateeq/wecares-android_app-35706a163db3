@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.android:facebook-messenger:5.15.3@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec1bb839f4c27570ed80af9d311a575c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ec1bb839f4c27570ed80af9d311a575c/res" />
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/3d203c412093dc732a154f47607a3faa/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/3d203c412093dc732a154f47607a3faa/res" />
+      <root url="file://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/transforms-2/files-2.1/3d203c412093dc732a154f47607a3faa/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-messenger/5.15.3/1612b8e2d42ca33e556a827cab97d64f1086c97/facebook-messenger-5.15.3-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-3.3-all/caches/modules-2/files-2.1/com.facebook.android/facebook-messenger/5.15.3/1612b8e2d42ca33e556a827cab97d64f1086c97/facebook-messenger-5.15.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

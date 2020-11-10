@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ureed.ureed.ui.main.MainActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.personalInfo.CaregiverPersonalInformationViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/freeLancerPic"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        app:imageUrl="@{viewModel.picURL}"
+                        app:srcCompat="@drawable/default_profile_picture" />
+
+                    <LinearLayout
+                        android:id="@+id/replaceImageLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:onClick="@{() -> viewModel.onProfileImageClicked()}"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="25dip"
+                            android:layout_height="25dip"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_replace_image" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/spacing_tiny"
+                            android:text="@string/replace_photo"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_big"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4dip"
+                        android:background="@color/colorPrimary" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/account_type"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/account_type_tv"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:drawableStart="@drawable/ic_organization"
+                        android:drawableEnd="@drawable/ic_arrow_spinner"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:onClick="@{() -> viewModel.showAccountTypes()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/account_type" />
+
+                    <include layout="@layout/separator_view" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/firstName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:hint="@string/first_name"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}"
+                                app:validateRegex='@{"^.{2,}$"}'
+                                app:validateRegexMessage="@{@string/error_invalid_name}"/>
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/middleName_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:hint="@string/middle_name"
+                                />
+
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/lastName_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/last_name"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}"
+                            app:validateRegex='@{"^.{2,}$"}'
+                            app:validateRegexMessage="@{@string/error_invalid_name}"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/mobile_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/mobile_number"
+                            android:inputType="phone"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_note_you_need_to_contact_support_center_in_order_to_edit_your_email_or_mobile_number_number"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/font_small"
+                        android:layout_margin="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/Address_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/street_address"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city"
+                        android:textColor="@color/gray2"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_city_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/personalprofilecity_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_location"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:onClick="@{() -> viewModel.personalcitiesClicked()}"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/city_optional" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/province_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/state_provice"
+                            app:validateRegex='@{"^.{2,}$"}'
+                            app:validateRegexMessage="@{@string/error_invalid_name}"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/postalcode_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/postal_code"
+                            android:inputType="number"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gender"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/gender_membership_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/gender_membership_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/employees"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.genderClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/gender" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/birthe_date"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/registration_birthdate_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/registration_birthdate_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/cake"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.birthDateClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/birthe_date" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/country_of_service"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/countryOfService_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/countryOfService_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_flag"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.countriesClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/country_of_service" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_note_you_need_to_contact_support_center_in_order_to_edit_country_of_service"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/font_small"
+                        android:layout_margin="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nationality"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nationality_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/nationality_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_flag"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.nationalityClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/nationality" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/membership_type"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:layout_marginTop="@dimen/spacing_little"
+                    android:paddingStart="@dimen/spacing_small"
+                    android:paddingEnd="@dimen/spacing_small"
+                    />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/membership_type_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/membership_type_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_memberahip_type"
+                            android:drawableEnd="@drawable/ic_arrow_spinner"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:onClick="@{() -> viewModel.membershipTypeClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/membership_type" />
+
+                        <include layout="@layout/separator_view" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_note_you_need_to_contact_support_center_in_order_to_edit_your_membership_type"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/font_small"
+                        android:layout_margin="@dimen/spacing_little"
+                        android:paddingStart="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_small"
+                        />
+
+                    ®
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nationality_number_layout"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                        >
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nationality_number_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/nationality_number"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout
+                        android:id="@+id/uploadIDLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:onClick="@{() -> viewModel.onIdentityDocumentClicked()}"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="25dip"
+                            android:layout_height="25dip"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_replace_image" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/spacing_tiny"
+                            android:text="@string/upload_identity_document"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/font_small" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/membership_code_layout"
+                        style="@style/CommonTextInputLayoutStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                        >
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/membership_code_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@color/white"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/organization_code"
+                            app:validateEmpty="@{true}"
+                            app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+
+</layout>

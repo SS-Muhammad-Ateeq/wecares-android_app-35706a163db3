@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="settings_language_menu_title">
+        <!--<item>@string/arabic</item>-->
+        <!--<item>@string/english</item>-->
+    </string-array>
+
+</resources>

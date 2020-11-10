@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.paymentmethod.PaymentMethodViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_method"
+                    android:textSize="@dimen/font_large"
+                    android:layout_marginTop="@dimen/spacing_huge"
+                    android:padding="@dimen/spacing_normal"
+                    android:textColor="@color/colorPrimary"
+                    android:drawableLeft="@drawable/ic_done_payment"
+                    android:drawablePadding="@dimen/spacing_normal"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/corner_border_gray"
+                    android:padding="@dimen/spacing_normal"
+                    android:layout_margin="@dimen/spacing_normal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/creditCardTV"
+                        style="@style/ContentText_Black_large"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_big"
+                        android:layout_marginEnd="@dimen/spacing_big"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_check_green"
+                        android:text="@string/credit_card"
+                        android:textAlignment="center"
+                        android:onClick="@{() -> viewModel.onCreditClicked()}"
+                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                        />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray3" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/cashTV"
+                        style="@style/ContentText_Black_large"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_big"
+                        android:layout_marginEnd="@dimen/spacing_big"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_un_checked_gray"
+                        android:checked="false"
+                        android:text="@string/cash"
+                        android:textAlignment="center"
+                        android:onClick="@{() -> viewModel.onCashClicked()}"
+                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+
+</layout>

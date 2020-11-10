@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.services.sub_duration.DurationSubServicesItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="@dimen/spacing_small">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_subtitle_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/item_addParent_linear"
+                android:padding="@dimen/spacing_small"
+                android:text="@{viewModel.serviceNameTitle}"
+                tools:text="Sub Services" />
+
+            <LinearLayout
+                android:id="@+id/item_addParent_linear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/item_delete_img"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_minus_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="@{() -> viewModel.onSubMinusClicked()}"
+                    android:padding="@dimen/spacing_small"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_remove_minus"
+                    android:visibility="@{safeUnbox(viewModel.isDurationInHour) ? View.VISIBLE : View.GONE, default=visible}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/item_duration_txt"
+                    style="@style/ContentText_Black_large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@{safeUnbox(viewModel.isDurationInHour) ? viewModel.durationText : @string/one_time}"
+                    tools:text="1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/item_add_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="@{() -> viewModel.onSubAddClicked()}"
+                    android:padding="@dimen/spacing_small"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_add_plus"
+                    android:visibility="@{safeUnbox(viewModel.isDurationInHour) ? View.VISIBLE : View.GONE, default=visible}" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_delete_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:onClick="@{() -> viewModel.onSubDeleteClicked()}"
+                android:padding="@dimen/spacing_normal"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_delete_gray" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray3" />
+
+    </LinearLayout>
+
+</layout>

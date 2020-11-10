@@ -1,0 +1,687 @@
+<resources>
+    <string name="app_name">WeCare</string>
+
+
+    <!--<string name="delete">Delete</string>-->
+    <string name="share">Share</string>
+
+    <!--Drawer-->
+    <string name="open_drawer">Drawer Open</string>
+    <string name="close_drawer">Drawer Close</string>
+
+
+    <!--App Message-->
+    <string name="api_retry_error">Please retry!</string>
+    <string name="api_default_error">Something wrong happened!</string>
+    <string name="some_error">Some Error Occurred!</string>
+    <string name="connection_error">Internet connection lost!</string>
+
+    <!--Login-->
+    <string name="splash_quote">The Comfort You Want &#8230; The Service You Need &#8230;</string>
+
+
+    <!--Login-->
+    <!--<string name="login">Login</string>-->
+    <string name="email">Email</string>
+    <!--<string name="password">Password</string>-->
+
+    <!--Login Validation-->
+    <string name="invalid_email_password">Please provide a valid email and password.</string>
+
+    <string name="version">"version"</string>
+
+
+    <string name="thank_you">Thank you</string>
+    <string name="rate_us">Rate Us</string>
+
+    <!--play store-->
+    <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
+    <string name="app_market_link">"market://details?id="</string>
+
+    <!--button-->
+    <string name="later">Later</string>
+    <string name="submit">Submit</string>
+    <string name="submit_order">Submit</string>
+
+
+    <!--empty state-->
+    <string name="empty_screen">We do not have anything\nhere right now.</string>
+    <string name="please_retry">Please Retry</string>
+    <!--<string name="retry">Retry</string>-->
+
+    <string name="support_email" translatable="false">info@wecare-app.net</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY" translatable="false">rrwYx0TljE39CLRnWyMvnMHZn</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET" translatable="false">XFVWWsPe8Gp9qyHGBmsHy5IZzXsxu4mnQhFSB55Yu9DKFfggfa</string>
+    <string name="facebook_app_id" translatable="false">2322989244401590</string>
+    <string name="facebook_app_id_giver" translatable="false">2282385312072490</string>
+    <string name="server_client_id_release" translatable="false">569598354322-ll1h6rbp7odkv7141hghc7ui899msi11.apps.googleusercontent.com</string>
+    <string name="server_client_id_debug" translatable="false">569598354322-h03c3gbm90oc5781pfpnsf11oeb6qtkh.apps.googleusercontent.com</string>
+    <string name="server_client_id" translatable="false">569598354322-t17d4ma4mku6uur590os01nil28l1cj0.apps.googleusercontent.com</string>
+    <string name="server_client_id_2" translatable="false">569598354322-5uafpp1su8ijlare6r8qbt2malurslcr.apps.googleusercontent.com</string>
+    <string name="server_client_id_3" translatable="false">569598354322-h03c3gbm90oc5781pfpnsf11oeb6qtkh.apps.googleusercontent.com </string>
+    <string name="server_client_id_27_8" translatable="false">569598354322-ll1h6rbp7odkv7141hghc7ui899msi11.apps.googleusercontent.com</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2322989244401590</string>
+    <string name="string_bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="map_api_key" translatable="false">AIzaSyCSla6lidR8xb29bv-Rt0WqBDWjWu1LPLU</string>
+    <string name="numeric" translatable="false">1234567890</string>
+    <string name="alphanumaric" translatable="false">qwertyuiopasdfghjklzxcvbnm1234567890</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="external_file_path" translatable="false">Android/data/com.wecare.android/</string>
+
+    <string name="alphabets_english_digits" translatable="false">abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM</string>
+
+    <!-- General -->
+    <string name="english" translatable="false">English</string>
+    <string name="arabic" translatable="false">عربي</string>
+    <string name="delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="set">Set</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="na">N/A</string>
+    <string name="empty" translatable="false"> </string>
+    <string name="slash" translatable="false">/</string>
+    <string name="shot_name">Short Name</string>
+    <string name="error_unexpected_error_occurred">Unexpected error has occurred</string>
+    <string name="gps_access_denied">GPS service is denied</string>
+    <string name="please_enable_location_services">Please enable location services</string>
+    <string name="error_no_connection">The internet connection appears to be offline</string>
+    <string name="succes_message_photo">Transaction has been saved to photo library</string>
+    <string name="short_name_disclaimer">For short name use only english letters</string>
+
+
+    <!--the error code-->
+    <string name="error_message_no_internet">No Network</string>
+    <string name="error_message_network">Network error</string>
+    <string name="error_message_call">Call failed</string>
+    <string name="error_message_map">Map loading failed</string>
+    <string name="error_gps_is_off">To show the correct nearest bank location, You need to turn on GPS from settings, Do you want to turn it on?</string>
+
+
+    <!--General -->
+    <string name="error">Error</string>
+    <string name="general_Error">General Error</string>
+    <string name="general_Error_Loading">Error Loading !</string>
+    <string name="general_NO_INTERNET_CONNECTION">No Internet Connection</string>
+    <string name="general_Server_Error">Server Error</string>
+    <string name="general_save">Save</string>
+    <string name="general_close">Close</string>
+    <string name="general_OK">OK</string>
+    <string name="general_Cancel">Cancel</string>
+    <string name="general_no_contacts">No Contacts Found</string>
+    <string name="general_to">to</string>
+    <string name="general_Update">Update</string>
+    <string name="general_Send">"Send "</string>
+    <string name="general_Success">Success</string>
+    <string name="general_Create">Create </string>
+    <string name="general_search">Search</string>
+    <string name="general_Creating">Creating</string>
+    <string name="general_PleaseWait">Please Wait</string>
+    <string name="general_Downloading">Downloading…</string>
+    <string name="general_Uploading">Uploading…</string>
+    <string name="general_Loading">Loading…</string>
+    <string name="general_skip">Skip</string>
+    <string name="general_required_field">Required Field</string>
+    <string name="general_file_not_found">File not found, Please try another file.</string>
+    <string name="general_delete">Delete </string>
+    <string name="skip">Skip</string>
+    <string name="error_invalid_password">Password must contain at least 6 characters</string>
+    <string name="error_invalid_name">Name must contain at least 2 characters</string>
+
+
+    <string name="error_permission_required">Application requires some permissions to be granted!</string>
+    <string name="error_no_item_to_display">No items to display</string>
+
+    <!--Home tabs-->
+    <string name="logout">Logout</string>
+
+    <!-- Loading Popup -->
+    <string name="requestBeingProcessed">Request being processed&#8230;</string>
+    <string name="requestInProgressCancel">Your Request is in progress, are you sure you want to cancel the request?</string>
+
+    <!-- Logout Popup -->
+    <string name="logout_confirmation">Do you want to logout?</string>
+    <string name="logout_force">Please login again to continue.</string>
+
+    <!-- Network error popup -->
+    <string name="network_or_server_issue">Please check your network and try again.</string>
+    <string name="retry">Retry</string>
+
+    <!-- Decline terms and conditions popup -->
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+
+    <!-- Login Screen -->
+    <string name="login">Login</string>
+    <string name="secure_login">Secure Login</string>
+    <string name="error_login_wrong_credentials">Error: Invalid credentials</string>
+    <string name="forgot_my_password">forget password</string>
+    <string name="terms_and_conditions">Terms &amp; Conditions</string>
+    <string name="contact_us">Contact us</string>
+
+    <!--Settings screen-->
+    <string name="application">Application</string>
+    <string name="language">Language</string>
+    <string name="account">Account</string>
+    <string name="reset">Reset</string>
+
+    <!-- change password screen -->
+    <string name="changepassword">Change Password</string>
+    <string name="currentpassword">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirmnewpassword">Confirm New Password</string>
+    <string name="error_confirm_new_password">Please confirm your new password</string>
+    <string name="error_new_password">Please enter new password</string>
+    <string name="error_old_password">Please enter current password correctly</string>
+    <string name="error_wrong_confirm_password">Passwords don’t match, Please enter them again</string>
+    <string name="success_password_changed">Your password has been changed successfully.</string>
+
+    <!-- Forgot password screen -->
+    <string name="forgot_password_login">Forgot Password?</string>
+
+    <!-- Share options pop-up -->
+    <string name="action_email">Send By Email</string>
+    <string name="action_download">Download</string>
+    <string name="action_print">Print</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Send to Email -->
+    <string name="please_find_attached_statement">Please find the attached statement</string>
+    <string name="send">Send</string>
+
+    <!-- Self Registration screen -->
+    <string name="self_registration">Self Registration</string>
+    <string name="error_customer_number">Please enter customer number correctly</string>
+    <string name="country_code">Code</string>
+    <string name="error_country_code">Please enter country code</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="street_address">Street Address</string>
+    <string name="state_provice">State/Province</string>
+    <string name="postal_code">Postal Code/Zip</string>
+    <string name="error_mobile_number">Please enter mobile number correctly</string>
+    <string name="nationality">Citizenship</string>
+    <string name="citizenship">Citizenship (Optional)</string>
+    <string name="error_nationlity">Please enter nationality</string>
+    <string name="first_name">First Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="middle_name_optional">Middle Name(Optional)</string>
+    <string name="last_name">Last Name</string>
+    <string name="gender">Gender</string>
+    <string name="birthe_date">Birth Date</string>
+
+
+    <!-- Self Registration (User name and password setting screen) -->
+    <string name="username">Username</string>
+    <string name="error_username">Please enter your username correctly</string>
+    <string name="password">Password</string>
+    <string name="password_6_characters">Password(minimum 6 characters)</string>
+    <string name="error_password">please enter your password correctly</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="error_confirm_password">Please confirm password</string>
+    <string name="i_accept">I accept</string>
+    <string name="error_accept_tc">Please accept Terms and Conditions</string>
+    <string name="error_field_required">Field Required</string>
+    <string name="error_email">Please enter your Email correctly</string>
+    <string name="error_otp_code">Please enter 5 digit code</string>
+
+    <string name="max_length_exceeded">Max length exceeded</string>
+    <string name="min_length_exceeded">Min length exceeded</string>
+
+
+    <string name="error_accept_terms">You must accept our terms and conditions</string>
+
+    <string name="error_read_terms_and_conditions">You must read our terms and conditions</string>
+
+
+    <string name="generic_password_error">Password doesn’t match mentioned conditions</string>
+    <string name="generic_username_error">Please enter a valid username</string>
+
+    <!-- Need help -->
+    <string name="help">Help</string>
+    <string name="need_help">Need help?</string>
+
+
+    <!--Google service error-->
+    <string name="google_services_error">Google play services is either not installed on the device or a new version of Google play services is available</string>
+    <string name="google_map_missing_message">Please install/enable the Google Maps for navigation</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="sign_in">Sign in</string>
+    <string name="new_in_wecare">New in WeCare?</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="login_to_your_account">Login to Your Account</string>
+    <string name="email_or_mobile_number">Email or Mobile Number</string>
+    <string name="reset_password_email_disclaimer">Make sure the email you enter is the email you used to create the account. If any other email is used, an email will not be sent and you will be unable to reset the password.</string>
+    <string name="reset_password_phone_disclaimer">Make sure the phone number you enter is the phone number you used to create the account. If any other phone number is used, an SMS will be sent to the wrong person and you will be unable to reset the password.</string>
+    <string name="by_email">By Email</string>
+    <string name="by_phone">By Phone</string>
+    <string name="reset_password_disclaimer">Make sure the email you enter is the email you used to create the account. If any other email is used, an email will not be sent and you will be unable to reset the password.</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="order">Order</string>
+    <string name="settings">Settings</string>
+    <string name="enter_5_digit_code">Enter 5 digit Code</string>
+    <string name="enter_a_new_password">Enter A new password</string>
+    <string name="notification">Notification</string>
+    <string name="services">Services</string>
+    <string name="review_add_services">Review/ Add Services</string>
+    <string name="caregiver">Caregiver</string>
+    <string name="users">Users</string>
+    <string name="we_care_your_satisfaction">WeCare Your Satisfaction</string>
+
+
+    <string name="error_common">Something went wrong :(</string>
+    <string name="regexErrorMessage">Please provide a valid password.</string>
+
+
+    <string name="password_updated_message">You will now be automatically logged into WeCare with an updated password</string>
+    <string name="password_updated_title">New password has been set successfully</string>
+
+    <!-- Forget Password-->
+    <string name="reset_pass_sent_to_email">The reset password code has been sent, please check your email</string>
+    <string name="reset_pass_sent_to_phone">The reset password code has been sent to your mobile number, please check your inbox</string>
+    <string name="show_all">Show All</string>
+    <string name="wecare">WeCare</string>
+    <string name="about_the_app">About the app</string>
+    <string name="share_wecare_app">Tell a Friend \u2764</string>
+    <string name="privacy_police">Privacy Police</string>
+    <string name="change">Change</string>
+    <string name="current_orders">Current Orders</string>
+    <string name="previous_orders">Previous Orders</string>
+    <string name="block">Block</string>
+    <string name="call">Call</string>
+    <string name="chat">Chat</string>
+    <string name="account_activated">Thank you your account has been activated successfully</string>
+    <string name="please_rewrite_your_mobile_number_to_make_sure_you_registred_the_right_number">please rewrite your mobile number to make sure you registered the correct mobile number</string>
+    <string name="resend_activation_code">Resend Activation Code</string>
+    <string name="to_resend_activation_code">to send activation code again</string>
+    <string name="wallet">Wallet</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="education_ceritification"><![CDATA[Education & Certification]]></string>
+    <string name="schedule_services">Update my availability</string>
+    <string name="submitting_services_area">Update Service Area</string>
+    <string name="bank_info">Bank Info</string>
+    <string name="bio">Bio</string>
+    <string name="ask_for_help">Order Now</string>
+    <string name="choose_the_days_of_care">Choose the days of care</string>
+    <string name="su">Su</string>
+    <string name="mo">Mo</string>
+    <string name="tu">Tu</string>
+    <string name="we">We</string>
+    <string name="th">Th</string>
+    <string name="fr">Fr</string>
+    <string name="sa">Sa</string>
+    <string name="time_of_care">Time Of Care</string>
+    <string name="different_times">Different Times</string>
+    <string name="same_times">Same Times</string>
+    <string name="select">Select</string>
+    <string name="start_times">Start Times</string>
+    <string name="end_times">End Times</string>
+    <string name="day">Day</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="press_again_to_exit">Press again to exit</string>
+    <string name="to_whom_this_health_care_will_be_provided">To whom this health care will be provided?</string>
+    <string name="add_new_person">Add New</string>
+    <string name="relative_profile_title">Related Profile</string>
+    <string name="name">Name</string>
+    <string name="relationship">Relationship</string>
+    <string name="age">Age</string>
+    <string name="health_information">Health Information</string>
+    <string name="health_information_optional">Health Information (Optional)</string>
+    <string name="blood_type">Blood type</string>
+    <string name="weight">Weight</string>
+    <string name="chronic_diseases">Chronic Diseases</string>
+    <string name="is_there_health_insurance">Is there health insurance?</string>
+    <string name="insurance_number">Insurance Number</string>
+    <string name="insurance_company_name">Insurance Company</string>
+    <string name="malpractice_insurance">Malpractice Insurance</string>
+    <string name="error_select_days_times">You must select days and times</string>
+    <string name="error_select_start_time">You must select start time for </string>
+    <string name="error_select_end_time">You must select end time for </string>
+    <string name="success_service_schedule">Services Scheduled Successfully</string>
+    <string name="warning_activate_service">You added a new service and this service need activate from WeCare.</string>
+    <string name="there_is_no_services_need_to_activation">There is no services need to activation</string>
+    <string name="new_services_need_activation_from_wecare">New services need \n  activation from WeCare</string>
+    <string name="my_profile">My Profile</string>
+    <string name="information">Information</string>
+    <string name="location">Location</string>
+    <string name="locations">Service locations</string>
+    <string name="schedule">Schedule</string>
+    <string name="your_active_services">Your Active Services</string>
+    <string name="next">Next</string>
+    <string name="the_caregiver_will_contact_you_on_this_mobile_number">The Caregiver will contact you on this mobile number</string>
+    <string name="more_description">Message to the provider</string>
+    <string name="medical_supplies_needed">Medical Supplies Needed</string>
+    <string name="special_request">Special Request</string>
+    <string name="need_some_materials">Need some materials?</string>
+    <string name="this_appointment_for">This Appointment for</string>
+    <string name="add_new_photos">Add Photos</string>
+    <string name="add_photos">Upload Photos</string>
+    <string name="add_photos_disclaimer">eg. X-Ray, Medical Report, Lab Result, Patient Wound ... etc.</string>
+    <string name="edit">Edit</string>
+    <string name="not_verified">Not verified</string>
+    <string name="price">Price</string>
+    <string name="gender_of_care_seeker">Gender of care seeker</string>
+    <string name="to_whom_service_be_provided">Prefer to provide this services to:</string>
+    <string name="add">Add</string>
+    <string name="min_price_desc">Min \u0020</string>
+    <string name="max_price_desc">\u0020 - Max \u0020</string>
+    <string name="delete_service_msg">Are you sure you want to delete this service</string>
+    <string name="available_24_hours_a_day">Available 24 hours a day</string>
+    <string name="choose_services">Choose services you can give</string>
+    <string name="place_of_issue">Place of issue</string>
+    <string name="license_number">License Number</string>
+    <string name="license_copy">License copy</string>
+    <string name="education">Education</string>
+    <string name="university_or_collage_name">Educational Institute</string>
+    <string name="education_degree">Education degree</string>
+    <string name="specialization">Specialization</string>
+    <string name="job_description">Job description</string>
+    <string name="job_title">Job title</string>
+    <string name="company_or_hospital_name">Organization Name</string>
+    <string name="experience">Experience</string>
+    <string name="certificates">Certificates</string>
+    <string name="attachment">Attachments</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="insurance_type">Insurance Type</string>
+    <string name="issuer_name">Issuer Name</string>
+    <string name="expiration_date">Expiration Date</string>
+    <string name="error_select_start_date">Select Start Date</string>
+    <string name="error_select_end_date">Select End Date</string>
+    <string name="saved_successfully">Saved successfully</string>
+    <string name="take_photo">Take photo</string>
+    <string name="pick_from_gallery">Pick from gallery</string>
+    <string name="add_new_location">Add New</string>
+    <string name="you_didn_t_add_any_location_yet_do_you_want_to_add_location_now">You didn\'t add any location yet Do you want to add location now?</string>
+    <string name="location_city">City:</string>
+    <string name="location_country">Country:</string>
+    <string name="location_area">Area:</string>
+    <string name="location_street_name">Street Name:</string>
+    <string name="building_number">Building Name/Number:</string>
+    <string name="floor_number">Floor/Apartment Number:</string>
+    <string name="delete_item_confirmation">Are you sure you want to delete it</string>
+    <string name="attachment_category">Attachment Category</string>
+    <string name="my_informations">My Information\'s</string>
+    <string name="payment_methods">Payment Method</string>
+    <string name="favourite_and_blocked_caregivers">Favourite and Blocked Caregivers</string>
+    <string name="i_need_tack_my_orders_from">Select service area</string>
+    <string name="share_my_last_location">Share my current location</string>
+    <string name="specific_location">Select location on the map</string>
+    <string name="kg">KG</string>
+    <string name="cm">CM</string>
+    <string name="insurance_expiration_date">Insurance Expiration Date</string>
+    <string name="country">Country</string>
+    <string name="account_name">Account Name</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="bank_statement">Bank Statement or cheque</string>
+    <string name="bank_information">You can find bank\'s transit number and your account number on a bank statement.In your online account, or on a cheque.</string>
+    <string name="transitnumber_bankinfo">Your transit.number is 5 digits</string>
+    <string name="accountnumber_bankinfo">Your account.number is the last 7-12 digits.</string>
+    <string name="education_instruction_title">Instructions</string>
+    <string name="read_instruction">Read Instructions</string>
+    <string name="education_instructions1">Welcome to WeCare!Help us get to know you better. Please use the below field to provide informations about your education, skills and licences.</string>
+    <string name="education_instructions2">The information we collect will be used to verify the list of services you are eligiable to perform.</string>
+    <string name="education_instructions3">A representative from WeCare might connect with you within the next 24 hours to welcome you to our community, help answer any questions you might have, and ensure your profile information are complete.</string>
+    <string name="account_number">Account Number</string>
+    <string name="transit_no">Transit No</string>
+    <string name="swift_code">Swift code</string>
+    <string name="iban_number">IBAN Number</string>
+    <string name="blood_pressure">Blood Pressure</string>
+    <string name="type_of_insurance">Type of insurance</string>
+    <string name="length">Length</string>
+    <string name="health_insurance">Health Insurance</string>
+    <string name="please_select_which_service_you_want">Please select which service you want</string>
+    <string name="please_drag_map_to_your_address">Please drag map to your address..</string>
+    <string name="please_note_that_the_minimum_time_for_any_services_is_one_hour">Please note that the minimum time for any services is one hour</string>
+    <string name="pay_in_cash">Cash Payment</string>
+    <string name="pay_by_credit">Online Payments</string>
+    <string name="total_amount_of_orders">Total amount of orders</string>
+    <string name="balance">Balance</string>
+    <string name="show_payments_history">Show Payments History</string>
+    <string name="previous">Previous</string>
+    <string name="accepted">Accepted</string>
+    <string name="pending">Pending</string>
+    <string name="change_language">Change Language</string>
+    <string name="providing_services">Providing Services</string>
+    <string name="hold_getting_requests_if_you_turned_off">Hold getting requests if you turned off</string>
+    <string name="contact_type">Contact Type</string>
+    <string name="day_of_service">Day of Service</string>
+    <string name="time_of_service">Time of Service</string>
+    <string name="appointment_date_and_time">Appointment Date and Time</string>
+    <string name="when_do_you_need_this_service">When do you need this service?</string>
+    <string name="invalid_time_please_select_greater_than">Invalid time! Please Select greater than current time</string>
+    <string name="order_details">Order Details</string>
+    <string name="years">Years</string>
+    <string name="service_name">Service Name</string>
+    <string name="duration">Duration</string>
+    <string name="hours">Hours</string>
+    <string name="total">Total</string>
+    <string name="one_time">One Time</string>
+    <string name="duration_hourly">Duration / Hourly</string>
+    <string name="please_select_relative_profile_first">Please select relative profile first.</string>
+    <string name="report">Report</string>
+    <string name="unblock">Unblock</string>
+    <string name="reject_order">Reject Order</string>
+    <string name="reject_order_disclaimer">Are you sure you want to reject this order? if yes, please let us know why?</string>
+    <string name="reject_order_other_disclaimer">please let us know why?</string>
+    <string name="cancel_order_disclaimer">Are you sure you want to Cancel this order? \nReason for Cancellation</string>
+    <string name="your_reason">Your reason</string>
+    <string name="start_time">Start Time</string>
+    <string name="order_for">Order For</string>
+    <string name="search_for_caregiver">Search for Caregiver</string>
+    <string name="credit_card">On Line</string>
+    <string name="cash">Cash</string>
+    <string name="location_name">Location Name</string>
+    <string name="set_location_name">Set location name</string>
+    <string name="select_country">Select Country</string>
+    <string name="set_new_location">Set New Location</string>
+    <string name="select_city">Select City</string>
+    <string name="set_area">Set Area</string>
+    <string name="set_street_name">Set Street Name</string>
+    <string name="set_building_number">Set Building Name/Number</string>
+    <string name="select_floor_number">Select Floor/Apartment Number</string>
+    <string name="order_cancellation">Order Cancellation</string>
+    <string name="are_you_sure_you_want_cancel_this_order">Are you sure you want cancel this order?</string>
+    <string name="how_much_you_received">How much you received?</string>
+    <string name="add_new_services">Add new services</string>
+    <string name="finish_order">Finish Order</string>
+    <string name="please_select_one_sub_service_at">Please select one sub Service at least.</string>
+    <string name="suggested">Suggested</string>
+    <string name="favourite">Favourite</string>
+    <string name="search_results">Search Results</string>
+    <string name="filter">Filter</string>
+    <string name="enter_caregiver_id">Enter caregiver ID</string>
+    <string name="confirm">Confirm</string>
+    <string name="are_you_satisfied_with_the_level_of_this_service">Are you satisfied with the level of this service</string>
+    <string name="close">Close</string>
+    <string name="rate">Rate</string>
+    <string name="evaluation">Evaluation</string>
+    <string name="commitment_to_the_appointment">Commitment to the appointment</string>
+    <string name="location_readiness">Location Readiness</string>
+    <string name="providing_customized_tools">Providing Customized Tools</string>
+    <string name="hospitality_literature">Hospitality Literature</string>
+    <string name="address_accuracy">Address Accuracy</string>
+    <string name="description">Description</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="order_rejected_message">This Order has been rejected</string>
+    <string name="order_canceled_message">This Order has been Canceled</string>
+    <string name="we_hope_you_doing_well">We hope you doing well and get better orders</string>
+
+    <string-array name="orderStepLabels">
+        <item>@string/services</item>
+        <item>@string/information</item>
+        <item>@string/location</item>
+        <item>@string/appointment</item>
+        <item>@string/summry</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="active_order">Active Order</string>
+    <string name="great_job">Great Job</string>
+    <string name="job_finished_successfully">You have finished this order successfully</string>
+    <string name="service_error">You must have provided services</string>
+    <string name="notifications">Notifications</string>
+    <string name="delete_notification">Delete Notification</string>
+    <string name="delete_notification_disclaimer">Are you sure you want to delete this notification</string>
+    <string name="order_report">Order Report</string>
+    <string name="order_report_disclaimer">Please write a report about the patient and the type of medical procedures you have been given</string>
+    <string name="set_new_password">Set a new password</string>
+    <string name="pass_changed_succussfully">Password Changed Successfully</string>
+    <string name="new_order_created_successfully">New Order Created Successfully</string>
+    <string name="giver_will_contact_you_soon">The caregiver will contact you soon</string>
+    <string name="save_finish_order">Save, and finish this order</string>
+    <string name="activate_now">Activate now!</string>
+    <string name="under_review">Under Review</string>
+    <string name="submit_services_review_title">Thank you to submitting services</string>
+    <string name="submit_services_review_disclaimer">We will review your certifications for this services and we will back to you within 72 hours.</string>
+    <string name="services_need_admin_approval">Some Services Need administration approval</string>
+    <string name="create_same_order">Create Same Order</string>
+    <string name="reorder">Reorder</string>
+    <string name="main_services">Main Services</string>
+    <string name="please_select_giver_first">Please select giver first.</string>
+    <string name="block_caregiver">Block Caregiver</string>
+    <string name="block_caregiver_disclaimer">are you sure you want to block this caregiver</string>
+    <string name="explanation">Explanation</string>
+    <string name="caregiver_gender">Caregiver Gender</string>
+    <string name="nationality_number">Nationality Number</string>
+    <string name="preferred_caregiver_age">Preferred Caregiver Age</string>
+    <string name="years_experience">Years Experience</string>
+    <string name="reset_all_fields">Reset all Fields</string>
+    <string name="blocked">Blocked</string>
+    <string name="order_now">Order Now</string>
+    <string name="service_not_available_disclaimer">The service is not available now in this country</string>
+    <string name="cont">Continue</string>
+    <string name="choose_deferent_country">choose deferent Country</string>
+    <string name="total_years_of_experience">Total Years of Experience</string>
+    <string name="please_select_a_wallet">Please Select A wallet</string>
+    <string name="payment_completed_successfully">Payment completed successfully</string>
+    <string name="pay">Pay</string>
+    <string name="no_i_didn_t_receive">No, I didn\'t received</string>
+    <string name="yes_i_received">Yes, I received</string>
+    <string name="Guest_your_need_to_be_login">You need to Login or register</string>
+    <string name="Guest_to_your_account">You need to Login by Your Account</string>
+    <string name="block_care_seeker">Block Care Seeker</string>
+    <string name="block_care_seeker_disclaimer">are you sure you want to block this care seeker</string>
+    <string name="validation_select_order_location">Validation: Please select location</string>
+    <string name="validation_select_order_date_time"><![CDATA[Validation: Please select date & time]]></string>
+    <string name="validation_select_order_relative_prifile_and_need_material"><![CDATA[Validation: Please select your relative profile & need some material]]></string>
+    <string name="validation_select_order_sub_service">Validation: Please select sub service first</string>
+    <string name="payments_history">Payments History</string>
+    <string name="error_select_reason">You must select a reason</string>
+    <string name="total_earned">Total Earned</string>
+    <string name="id">ID</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="payment_update_success">Payment Method Updated Successfully</string>
+    <string name="schedule_summary">Schedule Summary</string>
+    <string name="seeker_intro_first_title">choose a match caregiver and book instantly</string>
+    <string name="seeker_intro_second_title">choose a match location and book instantly</string>
+    <string name="seeker_intro_third_title">choose the best match for your parents and book instantly</string>
+    <string name="seeker_intro_first_desc">find multiple options from healthcare providers who want to serve you</string>
+    <string name="seeker_intro_second_desc">You can choose the right time and place to get the most appropriate health care provider</string>
+    <string name="seeker_intro_third_desc">secure needed health care for your loved ones through ordering health care provider</string>
+    <string name="giver_intro_first_title">Be our partner in improve health professions and Make Difference</string>
+    <string name="giver_intro_second_title">Manage yourself, Help others live a better life</string>
+    <string name="giver_intro_third_title">Own your Time, Distinguish your work and raise your income</string>
+    <string name="professional_license">Professional license</string>
+    <string name="replace_photo">Replace Photo</string>
+    <string name="contact_customer_support">Contact Customer Support</string>
+    <string name="customer_number_not_available">Sorry, Customer Support Number Not Available Currently</string>
+    <string name="caregiver_language">Caregiver Language</string>
+    <string name="summry">Summary</string>
+    <string name="appointment">Schedule</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="sorting_type">Sorting Type</string>
+    <string name="wecare_payment_disclaimer">Your account will be suspend if you have 100.000 JOD for WeCare company, so please pay the amount owned for WeCare company.</string>
+    <string name="get_directions">Get Directions</string>
+    <string name="location_not_available">Location is not available</string>
+    <string name="total_amount">Total amount</string>
+
+    <string name="we_will_contact_you_soon_to_proceed_create_your_account_and_add_your_staff">We will contact you soon to proceed create your account and add your staff</string>
+    <string name="organization">Organization</string>
+    <string name="individual">Individual</string>
+    <string name="you_didn_t_receive_activation_code">You didn\'t receive Activation Code?</string>
+    <string name="activate">Activate</string>
+    <string name="activation_code">Activation Code</string>
+    <string name="please_enter_the_activation_code_that_has_been_sent_via_message_at_your_number">Please enter the activation code that has been sent via message at your number</string>
+    <string name="activation_code_email">Check your email. you will receive 5 digit code insert them then enter a new password</string>
+    <string name="register">Register</string>
+    <string name="fees_per_order">Fees per order</string>
+    <string name="midterm">Midterm</string>
+    <string name="yearly">Yearly</string>
+    <string name="quarterly">Quarterly</string>
+    <string name="or">OR</string>
+    <string name="membership_fees">Membership fees</string>
+    <string name="done">Done</string>
+    <string name="contact_person">Contact Person</string>
+    <string name="country_of_service">Country of Service</string>
+    <string name="country_of_submitting_service">Country of Submitting Services</string>
+    <string name="country_of_service_seeker">Country of Requesting Service</string>
+    <string name="city">City</string>
+    <string name="city_optional">City (Optional)</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="membership_type">Membership type</string>
+    <string name="organization_code">Organization Code</string>
+    <string name="number_of_caregivers">Number of Caregivers</string>
+    <string name="new_account_created_successfully">New account created successfully</string>
+    <string name="dialog_please_activate_your_account_by_entering_the_code_sent_to_you_via_message">Please activate your account by entering the code sent to you via message</string>
+    <string name="check_your_messages">Check your Messages</string>
+    <string name="account_type">Account Type</string>
+    <string name="choose_a_match_and_book_instantly">Choose a match and book instantly</string>
+    <string name="we_find_thousand_of_people_who_want_to_save_you">We Find thousand of people who want to save you</string>
+    <string name="we_ll_show_you_great_caregivers_who_love_working_with_families_like_yours">We’ll show you great caregivers who love working with families like yours</string>
+    <string name="or_sign_in_by">Or Sign in by</string>
+    <string name="location_settings">Location Settings</string>
+    <string name="enable">Enable</string>
+    <string name="active">Active</string>
+    <string name="under_verification">Under Verification</string>
+    <string name="not_signed">Not Assigned</string>
+    <string name="welcome">Welcome</string>
+    <string name="please_choose_your_language">Please choose your language</string>
+    <string name="allowed_password_characters" translatable="false">0,1,2,3,4,5,6,7,8,9,*,qwertzuiopasdfghjklyxcvbnm,QWERTZUIOPASDFGHJKLYXCVBNM,_,-,@,*,#,$,!,?,+,.</string>
+    <string name="clear_all_notifications">Clear all notifications</string>
+    <string name="please_fill_all_required_fields">please complete all required fields</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_your_email_or_mobile_number_number">Please note you need to contact support center in order to edit your email or mobile number</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_your_membership_type">Please note you need to contact support center in order to edit your membership type</string>
+
+    <string name="from_start">From Start</string>
+    <string name="this_month">This Month</string>
+    <string name="old_balance">Old Balance</string>
+    <string name="vat_or_tax">Vat or Tax</string>
+    <string name="fee">Fee %</string>
+    <string name="zero_value">0</string>
+    <string name="online">Online</string>
+    <string name="g_total">G. Total</string>
+    <string name="the_change">Change</string>
+    <string name="if_you_want_to_change_any_other_information_like_the_email_or_phone_number_please_contact_wecare">If you want to change any other information like the email or phone number, please contact WeCare</string>
+    <string name="conform_phone_number">Confirm Phone Number</string>
+    <string name="confirm_phone_number_disclaimer">Are You Sure this is your phone number</string>
+    <string name="please_note_that_the_password_length_should_be_at_least_6_digits">Please note that the password length should be at least 6 digits</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_country_of_service">Please note you need to contact support center in order to edit country of service</string>
+    <string name="appearance">The appearance</string>
+    <string name="cleanliness">Cleanliness</string>
+    <string name="performance">The performance</string>
+    <string name="time_attendance">Time attendance</string>
+    <string name="quality_of_service">Quality of service</string>
+    <string name="upload_identity_document">Upload Identity Document</string>
+    <string name="identity_doc_uploaded_succussfully">Identity document uploaded successfully to attachments</string>
+    <string name="order_completed">Order Completed</string>
+    <string name="order_completed_disclaimer">Your order is completed, please rate your caregiver to finish the order</string>
+    <string name="rate_giver">Rate Caregiver</string>
+    <string name="not_now">Not Now</string>
+    <string name="currently_working">Currently Working</string>
+    //Malpractice insurance
+
+
+
+</resources>

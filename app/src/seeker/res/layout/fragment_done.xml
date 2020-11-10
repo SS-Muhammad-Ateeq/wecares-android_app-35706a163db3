@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.done.DoneViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/parent_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/giver_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:visibility="@{viewModel.isGiverSelected ? View.VISIBLE : View.GONE}"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/item_giver" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_services"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/services"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:background="@drawable/corner_border_gray"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/gray200"
+                                android:padding="@dimen/spacing_normal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:gravity="start"
+                                    android:text="@string/service_name"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/duration"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/subServiceTotal_txt"
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@string/total"
+                                    android:textStyle="bold"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/gray3" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/durationSubService_recycler"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/spacing_tiny"
+                                tools:itemCount="2"
+                                tools:listitem="@layout/item_duration_sub_services_summary" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_information"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/information"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:background="@drawable/corner_border_gray"
+                            android:orientation="vertical">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/spacing_normal">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/item_pickedImage_img"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/ic_image_placeholder"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/item_infoOrderFor_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/spacing_tiny"
+                                    android:text="@{viewModel.userInfoOrderFor}"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toEndOf="@+id/item_pickedImage_img"
+                                    app:layout_constraintTop_toTopOf="@+id/item_pickedImage_img"
+                                    tools:text="@string/order_for" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/item_infoYears_txt"
+                                    style="@style/ContentText_Gray"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/spacing_little"
+                                    android:text="@{viewModel.userInfoYears}"
+                                    app:layout_constraintStart_toEndOf="@+id/item_pickedImage_img"
+                                    app:layout_constraintTop_toBottomOf="@+id/item_infoOrderFor_txt"
+                                    tools:text="44 Years" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/item_infoGender_txt"
+                                    style="@style/ContentText_Gray"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/spacing_little"
+                                    android:text="@{viewModel.userInfoGender}"
+                                    app:layout_constraintBottom_toBottomOf="@+id/item_infoYears_txt"
+                                    app:layout_constraintStart_toEndOf="@+id/item_infoYears_txt"
+                                    tools:text="Female" />
+
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/item_infoMobile_txt"
+                                    style="@style/ContentText_Gray"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_small"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/spacing_little"
+                                    android:text="@{viewModel.userInfoMobile}"
+                                    app:layout_constraintBottom_toBottomOf="@+id/item_infoGender_txt"
+                                    app:layout_constraintStart_toEndOf="@+id/item_infoGender_txt"
+                                    tools:text="44 Years" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/gray3" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/attachment_recycler"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/elevation_1"
+                                android:layout_marginTop="@dimen/spacing_normal"
+                                android:layout_marginEnd="@dimen/elevation_1"
+                                android:layout_marginBottom="@dimen/spacing_normal"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                tools:listitem="@layout/item_attachment_image_view" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/gray3" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/spacing_normal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:gravity="start"
+                                    android:text="@string/need_some_materials"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@{viewModel.userInfoNeedSomeMaterial}"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_location"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/location"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/location_recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/item_user_location" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_schedule"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/schedule"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/corner_border_gray"
+                            android:orientation="vertical"
+                            android:padding="@dimen/spacing_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/spacing_normal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="start"
+                                    android:text="@string/day_of_service"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@{viewModel.userScheduleDate}"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/gray3" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/spacing_normal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="start"
+                                    android:text="@string/time_of_service"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/ContentText_Black_large"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="end"
+                                    android:text="@{viewModel.userScheduleTime}"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/ic_done_payment"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/payment_methods"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/corner_border_gray"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/creditCard_txt"
+                                style="@style/ContentText_Black_large"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_big"
+                                android:layout_marginEnd="@dimen/spacing_big"
+                                android:layout_weight="1"
+                                android:drawableStart="@drawable/ic_un_checked_gray"
+                                android:onClick="@{() -> viewModel.creditCardClicked()}"
+                                android:text="@string/credit_card"
+                                android:textAlignment="center" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/gray3" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/cash_txt"
+                                style="@style/ContentText_Black_large"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_big"
+                                android:layout_marginEnd="@dimen/spacing_big"
+                                android:layout_weight="1"
+                                android:checked="false"
+                                android:drawableStart="@drawable/ic_check_green"
+                                android:onClick="@{() -> viewModel.cashClicked()}"
+                                android:text="@string/cash"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/ContentText_White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/spacing_xhuge"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:layout_marginEnd="@dimen/spacing_xhuge"
+                        android:background="@drawable/rounded_corners_button_coloraccent"
+                        android:onClick="@{() -> viewModel.onSearchForCaregiverClick()}"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/search_for_caregiver"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:visibility="@{viewModel.isGiverSelected ? View.GONE : View.VISIBLE}" />
+
+                    <TextView
+                        style="@style/ContentText_White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/spacing_xhuge"
+                        android:layout_marginTop="@dimen/spacing_huge"
+                        android:layout_marginEnd="@dimen/spacing_xhuge"
+                        android:background="@drawable/rounded_corners_button_coloraccent"
+                        android:onClick="@{() -> viewModel.onSubmitOrderClick()}"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/submit_order"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:visibility="@{viewModel.isGiverSelected ? View.VISIBLE : View.GONE}" />
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

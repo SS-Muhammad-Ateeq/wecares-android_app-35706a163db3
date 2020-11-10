@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!--tools:context=".ui.template.">-->
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.create_order.relative.RelativeProfileViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background">
+
+            <include layout="@layout/toolbar" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/contactWeCareToChangeLabel_txt"
+                android:layout_below="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/profileImageParent_linear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_normal"
+                        android:orientation="vertical">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/myProfile_img"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            app:imageUrl="@{viewModel.picURL}"
+                            app:srcCompat="@drawable/default_profile_picture" />
+
+                        <LinearLayout
+                            android:id="@+id/replaceImageLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:onClick="@{() -> viewModel.onProfileImageClicked()}"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="25dip"
+                                android:layout_height="25dip"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_replace_image" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="@dimen/spacing_tiny"
+                                android:text="@string/replace_photo"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/font_small" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_normal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/spacing_small"
+                            android:text="@string/personal_information"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:id="@+id/myProfileParent_linear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_little"
+                                android:layout_marginEnd="@dimen/spacing_little"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/CommonTextInputLayoutStyle"
+                                    android:layout_width="0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <!--style="@style/TextStyle"-->
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/firstName_edt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:background="@color/white"
+                                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                                        android:hint="@string/first_name"
+                                        app:validateEmpty="@{true}"
+                                        app:validateEmptyMessage="@{@string/general_required_field}"
+                                        app:validateRegex='@{"^.{2,}$"}'
+                                        app:validateRegexMessage="@{@string/error_invalid_name}" />
+
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/CommonTextInputLayoutStyle"
+                                    android:layout_width="0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/spacing_little"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <!--style="@style/TextStyle"-->
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/middleName_edt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:background="@color/white"
+                                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                                        android:hint="@string/middle_name_optional" />
+
+
+                                </com.google.android.material.textfield.TextInputLayout>
+                            </LinearLayout>
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/spacing_little"
+                                android:layout_marginEnd="@dimen/spacing_little"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <!--style="@style/TextStyle"-->
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/lastName_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:enabled="@{viewModel.enableFieldsEditMode}"
+                                    android:hint="@string/last_name"
+                                    app:validateEmpty="@{true}"
+                                    app:validateEmptyMessage="@{@string/general_required_field}"
+                                    app:validateRegex='@{"^.{2,}$"}'
+                                    app:validateRegexMessage="@{@string/error_invalid_name}" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/countryOfService_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <LinearLayout
+                                    style="@android:style/Widget.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/countryOfService_txt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:onClick="@{() -> viewModel.countriesOfServiceClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:text="@string/country_of_service" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/selectedCountryOfService_txt"
+                                        style="@style/ContentText_Black"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:drawableEnd="@drawable/ic_arrow_right"
+                                        android:drawablePadding="@dimen/spacing_small"
+                                        android:onClick="@{() -> viewModel.countriesOfServiceClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:textAlignment="viewEnd"
+                                        tools:text="Jordan" />
+                                </LinearLayout>
+
+                                <include layout="@layout/separator_view" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/nationality_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <LinearLayout
+                                    style="@android:style/Widget.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:onClick="@{() -> viewModel.nationalityClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:text="@string/nationality" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/selectedNationality_txt"
+                                        style="@style/ContentText_Black"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:drawableEnd="@drawable/ic_arrow_right"
+                                        android:drawablePadding="@dimen/spacing_small"
+                                        android:onClick="@{() -> viewModel.nationalityClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:textAlignment="viewEnd"
+                                        tools:text="Jordanian" />
+                                </LinearLayout>
+
+                                <include layout="@layout/separator_view" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <LinearLayout
+                                style="@android:style/Widget.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="1"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:text="@string/nationality_number" />
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/CommonTextInputLayoutStyle"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/selectedNationalityNumber_edt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:background="@color/white"
+                                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                                        android:inputType="numberSigned"
+                                        android:maxLength="20"
+                                        app:validateEmpty="@{true}"
+                                        app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/birthday_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <LinearLayout
+                                    style="@android:style/Widget.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:onClick="@{() -> viewModel.birthDateClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:text="@string/birthe_date" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/selectedBirthDate_txt"
+                                        style="@style/ContentText_Black"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:drawableEnd="@drawable/ic_arrow_right"
+                                        android:drawablePadding="@dimen/spacing_small"
+                                        android:onClick="@{() -> viewModel.birthDateClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:textAlignment="viewEnd"
+                                        tools:text="22/1/1991" />
+                                </LinearLayout>
+
+                                <include layout="@layout/separator_view" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/age_parent"
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+                            <!--android:onClick="@{() -> viewModel.ageClicked()}"-->
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/age" />
+
+                            <!--<androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/selectedAge_txt"
+                                style="@style/ContentText_Black"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:drawableEnd="@drawable/ic_arrow_right"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:padding="@dimen/spacing_normal"
+                                android:textAlignment="viewEnd"
+                                tools:text="45 Years" />-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/selectedAge_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:cursorVisible="true"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:hint="@string/years"
+                                    android:inputType="numberSigned"
+                                    android:maxLength="3"
+                                    app:validateEmpty="@{true}"
+                                    app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <include layout="@layout/separator_view" />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/name_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:enabled="@{viewModel.enableFieldsEditMode}"
+                                android:hint="@string/name"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/gender_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <LinearLayout
+                                style="@android:style/Widget.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:onClick="@{() -> viewModel.genderClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:text="@string/gender" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/selectedGender_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:drawableEnd="@drawable/ic_arrow_right"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:onClick="@{() -> viewModel.genderClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:textAlignment="viewEnd"
+                                    tools:text="Male" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="false"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/countryCode_layout"
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.5"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <com.rilixtech.CountryCodePicker
+                                    android:id="@+id/countryCode_picker"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:enabled="@{viewModel.enableFieldsEditMode}"
+                                    android:hint="@string/country_code"
+                                    android:text="@string/country"
+                                    app:ccp_clickable="false"
+                                    app:ccp_textSize="@dimen/font_xlarge" />
+
+                                <!--app:ccp_hideNameCode="true"-->
+                                <!---->
+                                <!--<com.google.android.material.textfield.TextInputEditText-->
+                                <!--android:id="@+id/countryCode_edt"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:background="@color/white"-->
+                                <!--android:drawablePadding="@dimen/spacing_small"-->
+                                <!--android:enabled="@{viewModel.enableFieldsEditMode}"-->
+                                <!--android:hint="@string/country_code"-->
+                                <!--android:inputType="phone"-->
+                                <!--android:maxLength="5"-->
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/mobileNumber_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/spacing_little"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:hint="@string/mobile_number"
+                                    android:inputType="phone"
+                                    app:validateEmpty="@{true}"
+                                    app:validateEmptyMessage="@{@string/general_required_field}" />
+                                <!--android:enabled="@{viewModel.enableFieldsEditMode}"-->
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/relationship_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <LinearLayout
+                                style="@android:style/Widget.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:onClick="@{() -> viewModel.relationshipClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:text="@string/relationship" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/Relationship_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:drawableEnd="@drawable/ic_arrow_right"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:onClick="@{() -> viewModel.relationshipClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:textAlignment="viewEnd"
+                                    tools:text="Male" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_normal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/spacing_small"
+                            android:text="@string/health_information_optional"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/bloodType_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <LinearLayout
+                                style="@android:style/Widget.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:onClick="@{() -> viewModel.bloodTypeClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:text="@string/blood_type" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/selectedBloodType_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:drawableEnd="@drawable/ic_arrow_right"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:onClick="@{() -> viewModel.bloodTypeClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:textAlignment="viewEnd"
+                                    tools:text="A+" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--<com.google.android.material.textfield.TextInputLayout-->
+                        <!--android:id="@+id/weight_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textColorHint="@color/gray"-->
+                        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+                            <!--android:onClick="@{() -> viewModel.weightClicked()}"-->
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/weight" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/selectedWeight_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:enabled="@{viewModel.enableFieldsEditMode}"
+                                    android:hint="@string/kg"
+                                    android:inputType="numberSigned"
+                                    android:maxLength="3" />
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/general_required_field}"-->
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                        <include layout="@layout/separator_view" />
+                        <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+                        <!--<com.google.android.material.textfield.TextInputLayout-->
+                        <!--android:id="@+id/length_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textColorHint="@color/gray"-->
+                        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/length" />
+
+                            <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--android:id="@+id/selectedLength_txt"-->
+                            <!--style="@style/ContentText_Black"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:drawableEnd="@drawable/ic_arrow_right"-->
+                            <!--android:drawablePadding="@dimen/spacing_small"-->
+                            <!--android:padding="@dimen/spacing_normal"-->
+                            <!--android:textAlignment="viewEnd"-->
+                            <!--tools:text="174 CM" />-->
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/selectedLength_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:enabled="@{viewModel.enableFieldsEditMode}"
+                                    android:hint="@string/cm"
+                                    android:inputType="numberSigned"
+                                    android:maxLength="3"
+                                    android:onClick="@{() -> viewModel.bloodTypeClicked()}" />
+                                <!--app:validateEmpty="@{true}"
+                                    app:validateEmptyMessage="@{@string/general_required_field}"-->
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <include layout="@layout/separator_view" />
+                        <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+                        <!--<com.google.android.material.textfield.TextInputLayout-->
+                        <!--android:id="@+id/bloodPressure_layout"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textColorHint="@color/gray"-->
+                        <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+                        <LinearLayout
+                            style="@android:style/Widget.EditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="horizontal">
+                            <!--android:onClick="@{() -> viewModel.genderClicked()}"-->
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="2"
+                                android:onClick="@{() -> viewModel.bloodPressureClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/blood_pressure" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/BloodPressure_layout"
+                                style="@style/CommonTextInputLayoutStyle"
+                                android:layout_width="0dip"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/selectedBloodPressure_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:drawableEnd="@drawable/ic_arrow_right"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:onClick="@{() -> viewModel.bloodPressureClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:textAlignment="viewEnd"
+                                    tools:text="@string/yes" />
+
+                                <!--<com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/selectedBloodPressure_edt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@color/white"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:enabled="@{viewModel.enableFieldsEditMode}"
+                                    android:hint=""
+                                    android:inputType="phone"
+                                    android:maxLength="6"
+                                    app:validateEmpty="@{true}"
+                                    app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <include layout="@layout/separator_view" />
+                        <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/chronicDiseases_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <LinearLayout
+                                style="@android:style/Widget.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/white"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="2"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:onClick="@{() -> viewModel.chronicDiseasesClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:text="@string/chronic_diseases" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/selectedChronicDiseases_txt"
+                                    style="@style/ContentText_Black"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:clickable="@{viewModel.enableFieldsEditMode}"
+                                    android:drawableEnd="@drawable/ic_arrow_right"
+                                    android:drawablePadding="@dimen/spacing_small"
+                                    android:onClick="@{() -> viewModel.chronicDiseasesClicked()}"
+                                    android:padding="@dimen/spacing_normal"
+                                    android:textAlignment="viewEnd"
+                                    tools:text="@string/yes" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_normal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/spacing_small"
+                            android:text="@string/health_insurance"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/isThereHealth_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColorHint="@color/gray"
+                                app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                <LinearLayout
+                                    style="@android:style/Widget.EditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="2"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:onClick="@{() -> viewModel.isThereHealthInsuranceClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:text="@string/is_there_health_insurance" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/selectedIsThereHealth_txt"
+                                        style="@style/ContentText_Black"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:clickable="@{viewModel.enableFieldsEditMode}"
+                                        android:drawableEnd="@drawable/ic_arrow_right"
+                                        android:drawablePadding="@dimen/spacing_small"
+                                        android:onClick="@{() -> viewModel.isThereHealthInsuranceClicked()}"
+                                        android:padding="@dimen/spacing_normal"
+                                        android:textAlignment="viewEnd"
+                                        tools:text="A+" />
+                                </LinearLayout>
+
+                                <include layout="@layout/separator_view" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <LinearLayout
+                                android:id="@+id/insurance_parent_linear"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/insuranceCompanyName_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <LinearLayout
+                                        style="@android:style/Widget.EditText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/white"
+                                        android:orientation="horizontal">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="1"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:onClick="@{() -> viewModel.insuranceCompanyNameClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:text="@string/insurance_company_name" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:id="@+id/selectedInsuranceCompanyName_txt"
+                                            style="@style/ContentText_Black"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:drawableEnd="@drawable/ic_arrow_right"
+                                            android:drawablePadding="@dimen/spacing_small"
+                                            android:onClick="@{() -> viewModel.insuranceCompanyNameClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:textAlignment="viewEnd"
+                                            tools:text="A+" />
+                                    </LinearLayout>
+
+                                    <include layout="@layout/separator_view" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <!--<com.google.android.material.textfield.TextInputLayout-->
+                                <!--style="@style/CommonTextInputLayoutStyle"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:textColorHint="@color/gray"-->
+                                <!--app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">-->
+
+                                <!--&lt;!&ndash;style="@style/TextStyle"&ndash;&gt;-->
+                                <!--<com.google.android.material.textfield.TextInputEditText-->
+                                <!--android:id="@+id/insuranceCompanyName_edt"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_gravity="center"-->
+                                <!--android:background="@color/white"-->
+                                <!--android:cursorVisible="true"-->
+                                <!--android:drawablePadding="@dimen/spacing_small"-->
+                                <!--android:hint="@string/insurance_company_name"-->
+                                <!--app:validateEmpty="@{true}"-->
+                                <!--app:validateEmptyMessage="@{@string/insurance_company_name}" />-->
+
+                                <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    style="@style/CommonTextInputLayoutStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <!--style="@style/TextStyle"-->
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/insuranceNumber_edt"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:background="@color/white"
+                                        android:drawablePadding="@dimen/spacing_small"
+                                        android:enabled="@{viewModel.enableFieldsEditMode}"
+                                        android:hint="@string/insurance_number"
+                                        app:validateEmpty="@{true}"
+                                        app:validateEmptyMessage="@{@string/insurance_number}" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/typeOfInsurance_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <LinearLayout
+                                        style="@android:style/Widget.EditText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/white"
+                                        android:orientation="horizontal">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="2"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:onClick="@{() -> viewModel.typeOfInsuranceClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:text="@string/type_of_insurance" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:id="@+id/selectedTypeOfInsurance_txt"
+                                            style="@style/ContentText_Black"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:drawableEnd="@drawable/ic_arrow_right"
+                                            android:drawablePadding="@dimen/spacing_small"
+                                            android:onClick="@{() -> viewModel.typeOfInsuranceClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:textAlignment="viewEnd"
+                                            tools:text="First Class" />
+                                    </LinearLayout>
+
+                                    <include layout="@layout/separator_view" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:id="@+id/insuranceExpirationDate_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textColorHint="@color/gray"
+                                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                                    <LinearLayout
+                                        style="@android:style/Widget.EditText"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/white"
+                                        android:orientation="horizontal">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_weight="2"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:onClick="@{() -> viewModel.insuranceExpirationDateClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:text="@string/insurance_expiration_date" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:id="@+id/selectedInsuranceExpirationDate_txt"
+                                            style="@style/ContentText_Black"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:clickable="@{viewModel.enableFieldsEditMode}"
+                                            android:drawableEnd="@drawable/ic_arrow_right"
+                                            android:drawablePadding="@dimen/spacing_small"
+                                            android:onClick="@{() -> viewModel.insuranceExpirationDateClicked()}"
+                                            android:padding="@dimen/spacing_normal"
+                                            android:textAlignment="viewEnd"
+                                            tools:text="22/3/2020" />
+                                    </LinearLayout>
+
+                                    <include layout="@layout/separator_view" />
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/contactWeCareToChangeLabel_txt"
+                style="@style/ContentText_Black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/spacing_small"
+                android:text="@string/if_you_want_to_change_any_other_information_like_the_email_or_phone_number_please_contact_wecare"
+                android:textAlignment="center" />
+        </RelativeLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE, default=gone}" />
+
+    </FrameLayout>
+</layout>

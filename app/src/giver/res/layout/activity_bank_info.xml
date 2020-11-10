@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.bankinfo.BankInfoViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> viewModel.countriesClicked()}"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/country"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/spacing_normal"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/country_layout"
+                        android:layout_width="0dip"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/country_tv"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:gravity="center"
+                           />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+
+                <include layout="@layout/separator_view" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> viewModel.citiesClicked()}"
+                    >
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/city"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="@dimen/spacing_normal"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/city_layout"
+                        android:layout_width="0dip"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_little"
+                        android:layout_marginEnd="@dimen/spacing_little"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/cityTV"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:padding="@dimen/spacing_normal"
+                            android:gravity="center"
+
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </LinearLayout>
+
+
+                    <include layout="@layout/separator_view" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <!--style="@style/TextStyle"-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/accountName_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:hint="@string/account_name"
+                        app:validateEmpty="@{true}"
+                        app:validateEmptyMessage="@{@string/general_required_field}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <!--style="@style/TextStyle"-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/bankName_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:hint="@string/bank_name"
+                        app:validateEmpty="@{true}"
+                        app:validateEmptyMessage="@{@string/general_required_field}" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <!--style="@style/TextStyle"-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/accountNumber_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:hint="@string/account_number"
+                        app:validateEmpty="@{true}"
+                        app:validateEmptyMessage="@{@string/general_required_field}" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <FrameLayout
+                    android:id="@+id/layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <!--style="@style/TextStyle"-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/transitno_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/white"
+                        android:cursorVisible="true"
+                        android:drawablePadding="@dimen/spacing_small"
+                        app:validateEmpty="@{true}"
+                        android:hint="@string/transit_no"/>
+                    <!--                        app:validateEmpty="@{true}"-->
+                    <!--                        app:validateEmptyMessage="@{@string/general_required_field}" />-->
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/bankinformation_edt"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="right"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:elevation="@dimen/spacing_large"
+                    android:tint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_help"
+
+                    android:onClick="@{() -> viewModel.bankinformationClicked()}"
+                    />
+
+                </FrameLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CommonTextInputLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_little"
+                    android:layout_marginEnd="@dimen/spacing_little"
+                    android:gravity="center"
+                    android:textColorHint="@color/gray"
+                    app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                    <!--style="@style/TextStyle"-->
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+
+</layout>

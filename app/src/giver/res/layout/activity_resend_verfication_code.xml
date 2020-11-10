@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.activities.activation_code.VerificationCodeActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.login.LoginViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <include layout="@layout/toolbar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/bottom_parent_ll"
+                android:layout_below="@id/toolbar"
+                android:layout_margin="@dimen/spacing_large"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/registration_countryOfService_tv"
+                    style="@style/ContentText_Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableStart="@drawable/ic_flag"
+                    android:drawableEnd="@drawable/ic_arrow_spinner"
+                    android:drawablePadding="@dimen/spacing_small"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/country_of_service" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:background="@color/gray3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/verificationResend_countryCode_tv"
+                        style="@style/ContentText_Black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableEnd="@drawable/ic_arrow_spinner"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/country" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColorHint="@color/gray"
+                        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                        <!--style="@style/TextStyle"-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/verificationResend_mobileNumber_edt"
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:cursorVisible="true"
+                            android:drawablePadding="@dimen/spacing_small"
+                            android:hint="@string/mobile_number"
+                            android:inputType="textPhonetic"
+                            android:padding="@dimen/spacing_normal" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/verification_activate_btn"
+                    style="@style/ContentText_White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:background="@drawable/rounded_corners_button_coloraccent"
+                    android:text="@string/activate" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </FrameLayout>
+</layout>

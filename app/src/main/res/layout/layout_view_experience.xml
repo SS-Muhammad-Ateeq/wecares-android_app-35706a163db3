@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/companyNameTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Al Palqa applied university" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/durationTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        tools:text="Al Palqa applied university"
+        android:textSize="@dimen/font_small"
+        android:textColor="@color/gray2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/jobTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Good" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        android:text="@string/job_description"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/jobDescriptionTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        tools:text="Al Palqa applied university"
+        android:textSize="@dimen/font_small"
+   />
+    <include layout="@layout/separator_view"
+        />
+</LinearLayout>

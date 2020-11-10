@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:id="@+id/titleTV"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="@string/membership_type"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/parent_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/font_meduim"
+        android:layout_below="@id/titleTV">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner_border_gray"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ContentText_Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/lightGray"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@string/fees_per_order" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:id="@+id/feesPerOrderLayout">
+
+                    <TextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/fees_per_order" />
+
+                    <TextView
+                        android:id="@+id/membership_fees_txt"
+                        style="@style/ContentText_Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="30%" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal">
+
+                <TextView
+                    android:id="@+id/member_or_txt"
+                    style="@style/ContentText_White"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/rounded_corners_button_colorprimary"
+                    android:padding="@dimen/spacing_little"
+                    android:text="@string/or" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_toEndOf="@id/member_or_txt"
+                    android:background="@color/gray3" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:layout_toStartOf="@id/member_or_txt"
+                    android:background="@color/gray3" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@drawable/corner_border_gray"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/ContentText_Black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_corners_button_coloraccent_top_corner"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_small"
+                    android:text="@string/membership_fees" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:id="@+id/yearlyLayout">
+
+                    <TextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/yearly" />
+
+                    <TextView
+                        style="@style/ContentText_Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="500 JD" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:background="@color/gray3" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:id="@+id/midTermLayout">
+
+                    <TextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/midterm" />
+
+                    <TextView
+                        style="@style/ContentText_Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="300 JD" />
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:background="@color/gray3" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:id="@+id/quarterlyLayout">
+
+                    <TextView
+                        style="@style/ContentText_Black"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@string/quarterly" />
+
+                    <TextView
+                        style="@style/ContentText_Blue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="200 JD" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_parent_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_normal_bigger"
+        android:layout_below="@id/parent_scroll">
+
+        <TextView
+            style="@style/ContentText_White"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/spacing_xhuge"
+            android:layout_marginEnd="@dimen/spacing_xhuge"
+            android:background="@drawable/rounded_corners_button_coloraccent"
+            android:padding="@dimen/spacing_small"
+            android:text="@string/done"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

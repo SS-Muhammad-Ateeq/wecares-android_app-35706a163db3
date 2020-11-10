@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.order.previous.PreviousItemViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.MaterialComponents.CardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/spacing_small"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_normal"
+                android:weightSum="5"
+                android:onClick="@{() -> viewModel.onItemClick()}">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/order_user_img"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_profile"
+                        app:civ_border_color="@null"
+                        app:civ_border_width="0dp"
+                        app:civ_circle_background_color="@color/light_gray"
+                        app:imageUrl="@{viewModel.orderUserImg}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_name_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        android:text="@{viewModel.orderNameTxt}"
+                        tools:text="@string/name"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/needed_service_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        tools:text="Need Nursing Care for his Father"
+                        android:text="@{viewModel.requiredServiceTxt}"
+
+                        android:textSize="@dimen/font_small" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_dateTime_txt"
+                        style="@style/ContentText_Black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_tiny"
+                        tools:text="22 Jan 2019 8:30AM - 6:00PM"
+                        android:textSize="@dimen/font_small"
+                        android:text="@{viewModel.orderDateTimeTxt}"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_total_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@{viewModel.orderTotalTxt}"
+                        android:textSize="@dimen/font_small"
+                        tools:text="20,00 JOD"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/order_status_txt"
+                        style="@style/ContentText_White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="50dip"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        tools:text="Pending"
+                        android:padding="@dimen/spacing_little"
+                        android:textSize="@dimen/font_smaller"
+                        android:text="@{viewModel.orderStatusTxt}"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        />
+
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/spacing_normal"-->
+            <!--android:background="@color/light_gray" />-->
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

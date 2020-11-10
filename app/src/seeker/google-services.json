@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "569598354322",
+    "firebase_url": "https://wecare-careseeker.firebaseio.com",
+    "project_id": "wecare-careseeker",
+    "storage_bucket": "wecare-careseeker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569598354322:android:00ca712bb86ba23f",
+        "android_client_info": {
+          "package_name": "com.wecare.android.seeker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569598354322-t17d4ma4mku6uur590os01nil28l1cj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWVNPXDulxrQISdReQnLIFsbesgfaw264"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569598354322-ll1h6rbp7odkv7141hghc7ui899msi11.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "569598354322-bd507mdm4t8tdchll2ki5ge708s47lgu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nitaj.WeCareSeeker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.rating.basic.BasicRatingFragmentViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            style="@style/ContentText_White"
+            android:text="@string/evaluation"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/spacing_huge"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:paddingLeft="16dp"
+            android:paddingTop="30dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="65dp"
+            android:layout_marginTop="@dimen/spacing_xhuge">
+
+            <TextView
+                style="@style/TextStyle.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="@dimen/font_large"
+                android:text="@string/are_you_satisfied_with_the_level_of_this_service" />
+
+            <RatingBar
+                android:id="@+id/ratingBarFeedback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:numStars="5"
+                android:stepSize="1"
+                tools:rating="3"
+                android:progressTint="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/spacing_xhuge"
+            android:padding="@dimen/margin_normal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancel_btn"
+                style="@style/ContentText_White"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corners_button_coloraccent"
+                android:layout_margin="@dimen/margin_normal"
+                android:onClick="@{() -> viewModel.exitClicked()}"
+                android:text="@string/close" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ok_btn"
+                style="@style/ContentText_White"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_normal"
+                android:background="@drawable/rounded_corners_button_coloraccent"
+                android:text="@string/rate"
+                android:onClick="@{() -> viewModel.nextClicked()}"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

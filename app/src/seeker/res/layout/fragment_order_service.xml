@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.sub.ServicesViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/servicesParent_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Black_large"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/please_select_which_service_you_want"
+                        android:visibility="@{safeUnbox(viewModel.isSubServicesSelected) ? View.GONE : View.VISIBLE, default=visible}" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/service_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:padding="@dimen/spacing_small"
+                        app:orderAdapter="@{viewModel.mainServiceModelObservableArrayList}"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_order_service_main" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/durationSubServicesParent_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{safeUnbox(viewModel.isSubServicesSelected) ? View.VISIBLE : View.GONE, default=visible}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_normal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            tools:text="@string/service_name" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/ContentText_Black_large"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@string/duration_hourly" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray3" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/durationSubService_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_duration_sub_services" />
+                    <!--app:orderAdapter="@{viewModel.serviceResponseObservableArrayList}"-->
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_Gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:drawableStart="@drawable/ic_exclamation_mark"
+                        android:drawablePadding="@dimen/spacing_tiny"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/please_note_that_the_minimum_time_for_any_services_is_one_hour"
+                        android:textSize="@dimen/font_small" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </FrameLayout>
+</layout>

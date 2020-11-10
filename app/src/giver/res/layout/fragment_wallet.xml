@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.wallet.WalletFragmentViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/total_earned"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_normal" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="@dimen/spacing_huge"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="@string/from_start"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fromStartAmount_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/spacing_huge"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/thisMonth_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/spacing_huge"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:layout_marginEnd="@dimen/spacing_huge"
+                    android:text="@string/this_month"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_small" />
+
+                <ImageView
+                    android:id="@+id/ic_give"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_wallet_header_bg" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/totalEarnedTV"
+                    style="@style/ContentText_White_large"
+                    android:layout_width="45dip"
+                    android:layout_height="45dip"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/spacing_huge"
+                    android:background="@drawable/circle_shape_background_primary"
+                    android:drawableBottom="@drawable/ic_wallet_give"
+                    android:padding="10dip"
+                    android:textSize="@dimen/font_large" />
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/membershipTypeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dip"
+                android:textColor="@color/white" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/colorAccent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:src="@drawable/ic_pay_in_cash" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/service_users_txt"
+                                style="@style/ContentText_White"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pay_in_cash"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/font_meduim" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/cash_txt"
+                                style="@style/ContentText_White_large"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/colorAccent" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:src="@drawable/ic_pay_by_credit" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/services_caregiver_txt"
+                                style="@style/ContentText_White"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/pay_by_credit"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/font_meduim" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/credit_txt"
+                                style="@style/ContentText_White_large"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/colorAccent"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:background="@color/colorAccent" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_little"
+                        android:background="@drawable/border_gray_transparent"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/balance_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/rounded_corners_button_coloraccent_top_corner"
+                            android:drawableEnd="@drawable/ic_expand_open"
+                            android:gravity="center"
+                            android:padding="@dimen/spacing_little"
+                            android:text="@string/balance"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_large"
+                            android:onClick="@{() -> viewModel.expandTableClicked()}"
+                            />
+
+                        <LinearLayout
+                            android:id="@+id/tableLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.isExpanded ? View.VISIBLE : View.GONE}">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="0dip"
+                                    android:layout_height="100dip"
+                                    android:layout_weight="1" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:paddingTop="@dimen/spacing_normal"
+                                    android:text="@string/caregiver"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <LinearLayout
+                                    android:layout_width="0dip"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:paddingTop="@dimen/spacing_normal"
+                                        android:paddingBottom="@dimen/spacing_normal"
+                                        android:text="@string/wecare"
+                                        android:textColor="@color/colorPrimary" />
+
+                                    <include layout="@layout/separator_view" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="0dip"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:text="@string/vat_or_tax"
+                                            android:textSize="@dimen/font_small"
+                                            android:textColor="@color/colorPrimary" />
+
+                                        <View
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@color/gray3" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:layout_width="0dip"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:text="@string/fee"
+                                            android:textSize="@dimen/font_small"
+                                            android:textColor="@color/colorPrimary" />
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/cash"
+                                    android:textSize="@dimen/font_small"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/cash_caregiver_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/cash_vat_tax_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/cash_fee_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/online"
+                                    android:textSize="@dimen/font_small"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/credit_caregiver_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/credit_vat_tax_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/credit_fee_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="@dimen/spacing_normal_smaller"
+                                android:background="@color/gray3" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/total"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/font_small"
+                                    />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/total_caregiver_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/total_vat_tax_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/total_fee_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/light_gray"
+                                android:orientation="horizontal">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/g_total"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="@dimen/font_small"
+                                    />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/grand_total_caregiver_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray3" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/grand_total_we_care_tv"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dip"
+                                    android:layout_weight="2"
+                                    android:gravity="center"
+                                    android:text="@string/zero_value"
+                                    android:textColor="@color/colorPrimary" />
+
+                            </LinearLayout>
+
+                            <include layout="@layout/separator_view" />
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/payment_disclaimer_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_large"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:layout_marginEnd="@dimen/spacing_large"
+                            android:layout_marginBottom="@dimen/spacing_small"
+                            android:text="@string/wecare_payment_disclaimer"
+                            android:textColor="@color/gray2"
+                            android:textSize="@dimen/font_little_small" />
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/button_height_huge"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:layout_marginEnd="@dimen/button_height_huge"
+                        android:background="@drawable/border_gray_transparent"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/old_balance"
+                        android:textColor="@color/colorPrimary"
+                        tools:text="Old Balance 23 JOD"
+                        android:id="@+id/oldBalanceTV"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/payment_history_btn"
+                        style="@style/ContentText_White"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/button_height_huge"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:layout_marginEnd="@dimen/button_height_huge"
+                        android:layout_marginBottom="@dimen/spacing_huge"
+                        android:background="@drawable/rounded_corners_button_coloraccent"
+                        android:onClick="@{() -> viewModel.paymentHistoryClicked()}"
+                        android:padding="@dimen/spacing_normal"
+                        android:text="@string/show_payments_history" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

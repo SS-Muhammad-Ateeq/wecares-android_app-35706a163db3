@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:layout="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_normal"
+    >
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_delete_gray"
+        android:id="@+id/deleteEducation"
+        android:layout_margin="@dimen/spacing_normal"/>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/CommonTextInputLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_little"
+            android:layout_marginEnd="@dimen/spacing_little"
+            android:gravity="center"
+            android:textColorHint="@color/gray"
+            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/university_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:cursorVisible="true"
+                android:drawablePadding="@dimen/spacing_small"
+                android:hint="@string/university_or_collage_name"
+            />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+        android:id="@+id/education_degree_layout">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/education_degree_TV"
+            style="@style/ContentText_Black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableEnd="@drawable/ic_arrow_spinner"
+            android:drawablePadding="@dimen/spacing_small"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/education_degree"
+            />
+        <include layout="@layout/separator_view"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CommonTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_little"
+        android:layout_marginEnd="@dimen/spacing_little"
+        android:gravity="center"
+        android:textColorHint="@color/gray"
+        app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+        <!--style="@style/TextStyle"-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/specialization_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:cursorVisible="true"
+            android:drawablePadding="@dimen/spacing_small"
+            android:hint="@string/specialization" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="@dimen/spacing_little"
+        android:id="@+id/seperatorView"/>
+</LinearLayout>

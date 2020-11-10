@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/spacing_large"
+    android:layout_marginStart="@dimen/spacing_large"
+    android:background="@drawable/dialog_corner_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_normal">
+
+    <TextView
+        android:id="@+id/dialog_title_txt"
+        style="@style/ContentText_Gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/thank_you" />
+
+    <ImageView
+        android:contentDescription="@string/app_name"
+        android:id="@+id/dialog_icon_img"
+        android:layout_width="@dimen/spacing_huge"
+        android:layout_height="@dimen/spacing_huge"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal" />
+
+    <TextView
+        android:id="@+id/dialog_msg_txt"
+        style="@style/ContentText_Gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:gravity="center"
+        android:text="@string/check_your_messages" />
+
+    <Button
+        android:id="@+id/dialog_done_btn"
+        style="@style/ContentText_White"
+        android:background="@drawable/rounded_corners_button_coloraccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/done" />
+
+</LinearLayout>

@@ -1,0 +1,651 @@
+<resources>
+    <string name="app_name">WeCare</string>
+
+    <!-- General -->
+    <string name="delete">حذف</string>
+    <string name="ok">موافق</string>
+    <string name="set">تعيين</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="na">N/A</string>
+    <string name="shot_name">اسم قصير</string>
+    <string name="error_unexpected_error_occurred">حدث خطأ غير متوقع!</string>
+    <string name="gps_access_denied">خادم تحديد المواقع غير فعال</string>
+    <string name="please_enable_location_services">يرجى تفعيل خدمات الموقع</string>
+    <string name="error_no_connection">يبدو ان الاتصال بالانترنت سينقطع</string>
+    <string name="succes_message_photo">الاجراء نقل الي المكتبه</string>
+    <string name="reset">اعاده تعيين</string>
+    <string name="short_name_disclaimer">للاسماء القصيره الرجاء استخدام احرف انجليرية</string>
+    <string name="error_gps_is_off">لإظهار أقرب موقع بنك صحيح ، تحتاج إلى تشغيل GPS من الإعدادات ، هل تريد تشغيله؟</string>
+
+    <!--the error code-->
+    <string name="error_message_no_internet">لا يوجد شبكه</string>
+    <string name="error_message_network">عطل في الشبكه</string>
+    <string name="error_message_call">الاتصال فشل</string>
+    <string name="error_message_map">تحميل الخريطه فشل</string>
+
+    <!--<string name="delete">حذف</string>-->
+    <string name="share">مشاركة</string>
+
+    <!--Drawer-->
+    <string name="open_drawer">افتح القائمة</string>
+    <string name="close_drawer">اغلق القائمة</string>
+
+
+    <!--App Message-->
+    <string name="api_retry_error">اعد المحاوله من فضلك!</string>
+    <string name="api_default_error">ثمه خطأ ما!</string>
+    <string name="some_error">حدث خطا ما!</string>
+    <string name="connection_error">فقد الاتصال بالانترنت!</string>
+
+    <!--Login-->
+    <string name="splash_quote"> الراحة التي تريدها&#8230; الخدمة التي تحتاجها &#8230;</string>
+
+
+    <!--Login-->
+    <!--<string name="login">تسجيل الدخول</string>-->
+    <string name="email">البريد الالكتروني</string>
+    <!--<string name="password">كلمة المرور</string>-->
+
+    <!--Login Validation-->
+    <string name="invalid_email_password">يرجى تقديم بريد الكتروني صالح وكلمه مرور صالحة</string>
+
+    <string name="version">"اصدار"</string>
+
+
+    <string name="thank_you">شكرا لك</string>
+    <string name="rate_us">قيم التطبيق</string>
+
+    <!--play store-->
+    <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
+    <string name="app_market_link">"market://details?id="</string>
+
+    <!--button-->
+    <string name="later">فيما بعد</string>
+    <string name="submit">قدم</string>
+    <string name="submit_order">ارسال</string>
+
+
+    <!--empty state-->
+    <string name="empty_screen">لا نملك اي شيْ في الوقت الحالي!</string>
+    <string name="please_retry">من فضلك اعد المحاوله</string>
+    <!--<string name="retry">اعادة</string>-->
+
+    <!--General -->
+    <string name="error">خطأ</string>
+    <string name="general_Error">خطأ عام</string>
+    <string name="general_Error_Loading">تحميل الخطأ!</string>
+    <string name="general_NO_INTERNET_CONNECTION">لا يوجد اتصال بالانترنت</string>
+    <string name="general_Server_Error">خطأ بالخادم</string>
+    <string name="general_save">حفظ</string>
+    <string name="general_close">اغلاق</string>
+    <string name="general_OK">موافق</string>
+    <string name="general_Cancel">الغاء</string>
+    <string name="general_no_contacts">لا يوجد جهات اتصال</string>
+    <string name="general_to">الى</string>
+    <string name="general_Update">تحديث</string>
+    <string name="general_Send">ارسال</string>
+    <string name="general_Success">نجاح</string>
+    <string name="general_Create">انشاء </string>
+    <string name="general_search">بحث</string>
+    <string name="general_Creating">تم انشاء</string>
+    <string name="general_PleaseWait">الرجاء الانتظار</string>
+    <string name="general_Downloading">تنزيل..</string>
+    <string name="general_Uploading">تحميل</string>
+    <string name="general_Loading">تحميل</string>
+    <string name="general_skip">تجاهل</string>
+    <string name="general_required_field">يتطلب حقلا</string>
+    <string name="general_file_not_found">الملف غير موجود ,الرجاء تجريب ملف اخر</string>
+    <string name="general_delete">حذف </string>
+    <string name="skip">تجاهل</string>
+    <string name="error_invalid_password">كلمه السر يجب ان تحتوي على الاقل ٦ خانات</string>
+    <string name="error_invalid_name">يجب أن يحتوي الاسم على الاقل خانتين</string>
+
+
+    <string name="error_permission_required">يتطلب التطبيق منح بعض الاذونات!</string>
+    <string name="error_no_item_to_display">لا يوجد عناصر للعرض</string>
+
+
+    <!--side menu-->
+
+    <string name="logout">تسجيل الخروج</string>
+
+
+    <!-- Loading Popup -->
+    <string name="requestBeingProcessed">الطلب قيد المعالجة&#8230;</string>
+    <string name="requestInProgressCancel">طلبك قيد المعالجة ,هل انت متأكد انك ترغب في الغاء الطلب؟</string>
+
+    <!-- Logout Popup -->
+    <string name="logout_confirmation">هل ترغب فى تسجيل الخروج؟</string>
+    <string name="logout_force">للمتابعة ,من فضلك ادخل مجددا</string>
+
+    <!-- Network error popup -->
+    <string name="network_or_server_issue">من فضلك تحقق من الشبكة وحاول مره اخرى </string>
+    <string name="retry">اعد المحاوله</string>
+
+    <!-- Decline terms and conditions popup -->
+    <string name="decline">رفض</string>
+    <string name="accept">موافقة</string>
+
+    <!-- Login Screen -->
+    <string name="login">تسجيل الدخول</string>
+    <string name="secure_login">تسجيل دخول أمن</string>
+    <string name="error_login_wrong_credentials">خطأ:اوراق غير صالحه</string>
+    <string name="forgot_my_password">نسيت كلمه السر</string>
+    <string name="terms_and_conditions">الاحكام و الشروط</string>
+    <string name="contact_us">اتصل بنا</string>
+
+
+    <!--Settings screen-->
+    <string name="application">تطبيق</string>
+    <string name="language">اللغة</string>
+    <string name="account">حساب</string>
+
+    <!-- change password screen -->
+    <string name="changepassword">تغير كلمه المرور</string>
+    <string name="currentpassword">كلمه المرور الحاليه</string>
+    <string name="new_password">كلمه المرور الجديدة</string>
+    <string name="confirmnewpassword">تاكيد كلمه المرور الجديدة</string>
+    <string name="error_confirm_new_password">الرجاء تاكيد كلمه المرور الجديدة</string>
+    <string name="error_new_password">من فضلك ادخل كلمه المرور الجديده</string>
+    <string name="error_old_password">من فضلك ادخل كلمه المرور الحاليه صحيحه</string>
+    <string name="error_wrong_confirm_password">كلمه المرور غير مطابقه الرجاء معاوده الادخال</string>
+    <string name="success_password_changed">تم تغيير كلمه المرور بنجاح.</string>
+
+    <!-- Forgot password screen -->
+    <string name="forgot_password_login">هل نسيت كلمه المرور؟</string>
+
+    <!-- Share options pop-up -->
+    <string name="action_email">ارسل عبر البريد الالكتروني</string>
+    <string name="action_download">تنزيل</string>
+    <string name="action_print">طباعة</string>
+    <string name="cancel">الغاء</string>
+
+    <!-- Send to Email -->
+    <string name="please_find_attached_statement">من فضلك جد البيانات المروفقة</string>
+    <string name="send">ارسال</string>
+
+    <!-- Self Registration screen -->
+    <string name="self_registration">تسجيل ذاتي</string>
+    <string name="error_customer_number">من فضلك ادخال رقم العميل بشكل صحيح</string>
+    <string name="country_code">رمز</string>
+    <string name="error_country_code">من فضلك ادخل رمز البلد</string>
+    <string name="mobile_number">رقم الهاتف المحمول</string>
+    <string name="street_address">عنوان الشارع</string>
+    <string name="state_provice">الولاية / المقاطعة</string>
+    <string name="postal_code">عنوان البريد / الرمز البريدي</string>
+    <string name="error_mobile_number">من فضلك ادخل رقم الهاتف المحمول بشكل صحيح</string>
+    <string name="nationality">الجنسية</string>
+    <string name="citizenship">الجنسية(اختياري)</string>
+    <string name="error_nationlity">من فضلك ادخل الجنسية</string>
+    <string name="generic_password_error">كلمة المرور لا تتوافق مع الشروط</string>
+    <string name="generic_username_error">من فضلك ادخل اسم مستخدم صحيح</string>
+
+    <!-- Self Registration (User name and password setting screen) -->
+    <string name="username">اسم المستخدم</string>
+    <string name="error_username">من فضلك ادخل اسم المستخدم بشكل صحيح</string>
+    <string name="password">كلمة المرور </string>
+    <string name="password_6_characters">كلمة المرور(ستة احرف علي الأقل)</string>
+    <string name="error_password">من فضلك ادخل كلمه المرور بشكل صحيح</string>
+    <string name="confirmPassword">تاكيد كلمة المرور </string>
+    <string name="error_confirm_password">من فضلك اكد على كلمة المرور</string>
+    <string name="i_accept"> اوافق</string>
+    <string name="error_accept_tc">من فضلك وافق على سياسة الخصوصية والاحكام والشروط</string>
+    <string name="error_field_required">الحقل مطلوب</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="middle_name">اسم الاب</string>
+    <string name="middle_name_optional">اسم الاب(أختياري)</string>
+    <string name="last_name">اسم العائلة</string>
+    <string name="gender">الجنس</string>
+    <string name="birthe_date">تاريخ الميلاد</string>
+
+    <!-- Need help -->
+    <string name="help">مساعدة</string>
+    <string name="need_help">تحتاج للمساعدة؟</string>
+
+    <!--Google service error-->
+    <string name="google_services_error">Google play services is either not installed on the device or a new version of Google play services is available</string>
+    <string name="google_map_missing_message">يرجى تحميل/ تفعيل خرائط غوغل للحصول على توجيهات الطريق</string>
+    <string name="resend_code">اعادة ارسال الرمز</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="new_in_wecare">هل انت جديد في نحن نرعاك؟</string>
+    <string name="create_new_account">انشاء حساب جديد</string>
+    <string name="login_to_your_account">تسجيل الدخول</string>
+    <string name="email_or_mobile_number">البريد الالكتروني او رقم الهاتف المحمول</string>
+    <string name="reset_password_email_disclaimer">قم بالتاكد من ان البريد الالكتروني الذي ادخلته هو نفس البريد الالكتروني الذي قمت بالتسجيل به,اذا قمت بادخال برسد اللكتروني مختلف فانك لن تستطيغ تغير كلمه السر. </string>
+    <string name="reset_password_phone_disclaimer">قم بالتاكد ان رقم الهاتف الذي ادختله هو نفس رقم الهاتف الذي استخدمته لتسجيل بالتطبيق ,اذا قمت باستخدام رقم اخر لن تصلك الرساله القصيره وبذلك لن تستطيع اعادة تعين كل</string>
+    <string name="by_email">بالبريد الالكتروني</string>
+    <string name="by_phone">برقم الهاتف</string>
+    <string name="reset_password_disclaimer">قم بالتكد ان البريد الالكتروني الذي ادخلته هو نفس البريد الالكترونيالذي استخدمته  للتسجيل ,اذا قمت بادخال بريد اللكترونياخر لن يصلك بريد اللكتروني ولن تسطتيع تغير كلمه السر </string>
+    <string name="home">المنزل</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="order">الطلبات</string>
+    <string name="settings">الاعدادات</string>
+    <string name="enter_5_digit_code">ادخل الرمز من ٥ خانات</string>
+    <string name="enter_a_new_password">ادخل كلمه المرور جديدة</string>
+    <string name="notification">الاشعارات</string>
+    <string name="services">الخدمات</string>
+    <string name="review_add_services">اضافة/تعديل الخدمات</string>
+    <string name="caregiver">مقدم خدمة</string>
+    <string name="users">مستخدم</string>
+    <string name="we_care_your_satisfaction">نعمل على رضائك التام</string>
+
+    <string name="error_common">ثمة خطأ ما :(</string>
+    <string name="regexErrorMessage">من فضلك ادخل كلمة مرور متاحة</string>
+
+    <string name="error_email">من فضلك ادخل بريدك الالكتروني بشكل صحيح</string>
+    <string name="error_otp_code">من فضلك ادخل الرمز من ٥ خانات</string>
+
+    <string name="max_length_exceeded">تجاوزت الحد الاقصى </string>
+    <string name="min_length_exceeded">تجاوزت الحد الادنى </string>
+
+
+    <string name="error_accept_terms">يجب عليك الموافقة على سياسات الخصوصيه والاحكام والشروط!</string>
+
+    <string name="error_read_terms_and_conditions">يجب عليك ان تقرا سياسة الخصوصية والاحكام والشروط</string>
+
+    <string name="password_updated_message">سيتم الان تسجيل الدخول تلقائيا الي نحن نرعاك باستخدام كلمة المرور المحدثة</string>
+    <string name="password_updated_title">تم تعين كلمه المرور الجديدة بنجاح</string>
+
+    <!-- Forget Password-->
+    <string name="reset_pass_sent_to_email">تم ارسال رمز اعادة تعين كلمة المرور الجديدة ,يرجى التحقق من بريدك الالكتلروني</string>
+    <string name="reset_pass_sent_to_phone">تم ارسال رمز اعادة تعين كلمة المرور الجديدة لرقم هاتفك,من فضلك تحقق من البريد الالكتروني الرسائل الخاص بك</string>
+    <string name="show_all">عرض الكل</string>
+    <string name="wecare">نحن نرعاك</string>
+    <string name="about_the_app">عن التطبيق</string>
+    <string name="share_wecare_app">\u2764 شارك تطبيق نحن رعاك</string>
+    <string name="privacy_police">سياسة الخصوصية</string>
+    <string name="change">تعديل</string>
+    <string name="current_orders">الطلبات الحالية</string>
+    <string name="previous_orders">الطلبات السابقة</string>
+    <string name="block">حظر</string>
+    <string name="call">اتصال</string>
+    <string name="chat">محادثة</string>
+
+    <string name="account_activated">شكرا لك لقد تم تفعيل حسابك بنجاح</string>
+    <string name="please_rewrite_your_mobile_number_to_make_sure_you_registred_the_right_number">يرجى اعادة ادخال رقم هاتفك للنأكد من تسجيل هاتفك بشكل صحيح</string>
+    <string name="resend_activation_code">اعادة ارسال رمز التحقق</string>
+    <string name="to_resend_activation_code">لاعادة ارسال رمز التحقق</string>
+    <string name="wallet">المحفظة</string>
+    <string name="personal_information">المعلومات شخصية</string>
+    <string name="education_ceritification">التعليم والشهادات</string>
+    <string name="schedule_services">الجدول الزمني للخدمة</string>
+    <string name="submitting_services_area"> منطقة تقديم الخدمات</string>
+    <string name="bank_info">معلومات البنك</string>
+    <string name="bio">الملخص التعريفي</string>
+    <string name="ask_for_help">اطلب الخدمات</string>
+    <string name="choose_the_days_of_care">اختر ايام تقديم الخدمة</string>
+    <string name="su">الاحد</string>
+    <string name="mo">الاثنين</string>
+    <string name="tu">الثلاثاء</string>
+    <string name="we">الاربعاء</string>
+    <string name="th">الخميس</string>
+    <string name="fr">الجمعة</string>
+    <string name="sa">السبت</string>
+    <string name="time_of_care">وقت تقديم الخدمات</string>
+    <string name="different_times">اوقات مختلفة</string>
+    <string name="same_times">نفس الاوقات</string>
+    <string name="select">اختار</string>
+    <string name="start_times">بداية الوقت</string>
+    <string name="end_times">نهاية الوقت</string>
+    <string name="day">اليوم</string>
+    <string name="start">بداية</string>
+    <string name="end">نهاية</string>
+    <string name="sunday">الاحد</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="friday">الجمعة</string>
+    <string name="saturday">السبت</string>
+    <string name="press_again_to_exit">إضغط مجددا للخروج</string>
+    <string name="to_whom_this_health_care_will_be_provided">لمن ستقدم خدمة الرعاية الصحية؟</string>
+    <string name="add_new_person">اضف شخص جديد</string>
+    <string name="relative_profile_title">ملفات المقربين</string>
+    <string name="name">الاسم</string>
+    <string name="relationship">نوع العلاقة</string>
+    <string name="age">العمر</string>
+    <string name="health_information">معلومات صحية</string>
+    <string name="health_information_optional">معلومات صحية (أختياري)</string>
+    <string name="blood_type">فصيلة الدم</string>
+    <string name="weight">الوزن</string>
+    <string name="chronic_diseases">الامراض المزمنة</string>
+    <string name="is_there_health_insurance">هل يوجد تأمين صحي؟</string>
+    <string name="insurance_number">رقم التأمين</string>
+    <string name="insurance_company_name">شركة التامين</string>
+    <string name="malpractice_insurance">تأمين الاخطاء الطبية</string>
+    <string name="error_select_days_times">يجب ان تختار اليوم والوقت</string>
+    <string name="error_select_start_time">يجب ان تختار وقت البداية </string>
+    <string name="error_select_end_time">يجب ان تختار وقت النهاية </string>
+    <string name="success_service_schedule">تمت جدولة الخدمات بنجاح</string>
+    <string name="warning_activate_service">لقد قمت باضافة خدمة جديدة وهذه الخدمه تحتاج موافقة من نحن نرعاك</string>
+    <string name="there_is_no_services_need_to_activation">لا يوجد خدمات تحتاج لموافقة</string>
+    <string name="new_services_need_activation_from_wecare">New services need \n  activation from WeCare</string>
+    <string name="my_profile">ملفي</string>
+    <string name="information">المعلومات</string>
+    <string name="location">الموقع</string>
+    <string name="locations">مواقع الخدمة</string>
+    <string name="schedule">الجدول زمني</string>
+    <string name="your_active_services">الخدمات المفعلة</string>
+    <string name="next">التالي</string>
+    <string name="the_caregiver_will_contact_you_on_this_mobile_number">سيتواصل معك مقدم الخدمة على هذا الرقم</string>
+    <string name="more_description">رسالة الى المزود</string>
+    <string name="medical_supplies_needed">المواد الطبية المطلوبة</string>
+    <string name="special_request">طلب خاص</string>
+    <string name="need_some_materials">هل تريد ادوات معينه؟</string>
+    <string name="this_appointment_for">هذا الموعد ل</string>
+    <string name="add_new_photos">اضف صورة جديدة</string>
+    <string name="add_photos">تحميل الصور</string>
+    <string name="add_photos_disclaimer">صور اشعة، تقارير طبية، فحوصات مخبرية، صور الجروح .... الخ.</string>
+    <string name="edit">تعديل</string>
+    <string name="not_verified">لم يتم التحقق منها</string>
+    <string name="price">السعر</string>
+    <string name="gender_of_care_seeker">جنس طالب الخدمة</string>
+    <string name="to_whom_service_be_provided">الجنس المراد تقديم الخدمة له</string>
+    <string name="add">اضافة</string>
+    <string name="min_price_desc">اقل سعر \u0020</string>
+    <string name="max_price_desc">\u0020 -  اعلى سعر \u0020</string>
+    <string name="delete_service_msg">هل انت متأكد انك ترغب بمسح هذه الخدمة؟</string>
+    <string name="available_24_hours_a_day">متاح طوال 24 ساعة</string>
+    <string name="choose_services">اختار الخدمةالتي تستطيع تقديمها</string>
+    <string name="place_of_issue">مكان الصدور</string>
+    <string name="license_number">رقم الرخصة</string>
+    <string name="license_copy">نسخة من الرخصة</string>
+    <string name="education">التعليم</string>
+    <string name="university_or_collage_name">اسم المؤسسة التعليمية</string>
+    <string name="education_degree">درجة التعليم</string>
+    <string name="specialization">التخصص</string>
+    <string name="job_description">وصف الوظيفة</string>
+    <string name="job_title">عنوان الوظيفة</string>
+    <string name="company_or_hospital_name">اسم المؤسسة</string>
+    <string name="insurance_type">نوع التأمين</string>
+    <string name="issuer_name">اسم شركة التأمين</string>
+    <string name="expiration_date">تاريخ الإنتهاء</string>
+    <string name="experience">الخبرات</string>
+    <string name="certificates">الشهادات</string>
+    <string name="attachment">مرفقات</string>
+    <string name="from">من</string>
+    <string name="to">الى</string>
+    <string name="error_select_start_date">اختر تاريخ البداية</string>
+    <string name="error_select_end_date">اختر تاريخ الانتهاء</string>
+    <string name="saved_successfully">تم الحفظ بنجاح</string>
+    <string name="take_photo">التقط صورة</string>
+    <string name="pick_from_gallery">اختر صورة من القائمة</string>
+    <string name="add_new_location">اضف موقع جديد</string>
+    <string name="you_didn_t_add_any_location_yet_do_you_want_to_add_location_now">انت لم تقم باضافة اي موقع حتى الان هل ترغب بأضافة موقع الان؟</string>
+    <string name="location_city">مدينه:</string>
+    <string name="location_country">دولة:</string>
+    <string name="location_area">المنطقة:</string>
+    <string name="location_street_name">اسم الشارع:</string>
+    <string name="building_number">رقم/اسم المبنى:</string>
+    <string name="floor_number">رقم/اسم الطابق:</string>
+    <string name="delete_item_confirmation">هل انت متأكدانك ترغب في حذفها؟</string>
+    <string name="attachment_category">فئة المرفقات</string>
+    <string name="my_informations">معلوماتي</string>
+    <string name="payment_methods">طرق الدفع</string>
+    <string name="favourite_and_blocked_caregivers">مقدمي الخدمات المفضلين والمحظورين</string>
+    <string name="i_need_tack_my_orders_from">ضبط موقعي الافتراضي لتقديم الخدمات</string>
+    <string name="share_my_last_location">مشاركة موقعي</string>
+    <string name="specific_location">تحديد موقع</string>
+    <string name="kg">KG</string>
+    <string name="cm">CM</string>
+    <string name="insurance_expiration_date">تاريخ انتهاء التأمين</string>
+    <string name="country">البلد</string>
+    <string name="account_name">اسم الحساب</string>
+    <string name="bank_name">اسم البنك</string>
+    <string name="bank_statement">كشف حساب بنكي أو شيك</string>
+    <string name="bank_information">يمكنك العثور على رقم عبور البنك ورقم حسابك في كشف حساب بنكي ، أو في حسابك عبر الإنترنت ، أو على شيك</string>
+    <string name="transitnumber_bankinfo">رقم العبور الخاص بك هو 5 أرقام.</string>
+    <string name="accountnumber_bankinfo">رقم حسابك هو آخر 7-12 رقمًا.</string>
+    <string name="education_instruction_title">تعليمات</string>
+    <string name="education_instructions1">مرحبًا بكم في WeCare! ساعدنا في التعرف عليك بشكل أفضل. يرجى استخدام الحقل أدناه لتقديم معلومات حول تعليمك ومهاراتك وتراخيصك.</string>
+    <string name="education_instructions2">سيتم استخدام المعلومات التي نجمعها للتحقق من قائمة الخدمات التي يحق لك أداؤها.</string>
+    <string name="education_instructions3">قد يتواصل معك ممثل من WeCare في غضون الـ 24 ساعة القادمة للترحيب بك في مجتمعنا ، والمساعدة في الإجابة على أي أسئلة قد تكون لديك ، والتأكد من اكتمال معلومات ملفك الشخصي.</string>
+    <string name="account_number">رقم الحساب</string>
+    <string name="read_instruction">اقرأ التعليمات</string>
+    <string name="transit_no">رقم العبور</string>
+    <string name="swift_code"> رمز Swift  </string>
+    <string name="iban_number">رقم الحساب البنكي الدولي</string>
+    <string name="blood_pressure">هل تعاني من الضغط؟</string>
+    <string name="type_of_insurance">نوع التأمين</string>
+    <string name="length">الطول</string>
+    <string name="health_insurance">تأمين الصحي</string>
+    <string name="please_select_which_service_you_want">من فضلك اختر الخدمات التي تريدها</string>
+    <string name="please_drag_map_to_your_address">من فضلك اضف خريطة لعنوانك</string>
+    <string name="please_note_that_the_minimum_time_for_any_services_is_one_hour">من فضلك تذكر ان أقل وقت لتقديم الخدمة هو ساعة واحدة</string>
+    <string name="pay_in_cash">اجمالي المدفوع نقدا</string>
+    <string name="pay_by_credit">اجمالي المدفوع من خلال الفيزا</string>
+    <string name="total_amount_of_orders">اجمالي الطلبات</string>
+    <string name="balance">الرصيد</string>
+    <string name="show_payments_history">عرض سجل المدفوعات</string>
+    <string name="previous">السابقة</string>
+    <string name="accepted">موافق عليها</string>
+    <string name="pending">قيد الانتظار</string>
+    <string name="change_language">تغيير اللغة</string>
+    <string name="providing_services">تقديم الخدمات</string>
+    <string name="hold_getting_requests_if_you_turned_off">تعليق تلقي الخدمات في حال الاغلاق</string>
+    <string name="contact_type">نوع الاتصال</string>
+    <string name="day_of_service">يوم تقديم الخدمة</string>
+    <string name="time_of_service">وقت تقديم الخدمه</string>
+    <string name="appointment_date_and_time">موعد التاريخ والوقت</string>
+    <string name="when_do_you_need_this_service">متى تحتاج هذه الخدمة</string>
+    <string name="invalid_time_please_select_greater_than">وقت غير صالح ! يرجى اختيار وقت اكبر من الوقت الحالي</string>
+    <string name="order_details">تفاصيل الطلب</string>
+    <string name="years">سنوات</string>
+    <string name="service_name">اسم الخدمة</string>
+    <string name="duration">مدة زمنية</string>
+    <string name="hours">ساعات</string>
+    <string name="total">مجموع</string>
+    <string name="one_time">وقت واحد</string>
+    <string name="duration_hourly">المدة/كل ساعة</string>
+    <string name="please_select_relative_profile_first">من فضلك اختار ملف احد اقاربك في البداية</string>
+    <string name="report">تقرير</string>
+    <string name="unblock">الغاء الحظر</string>
+    <string name="reject_order">رفض الطلب</string>
+    <string name="reject_order_disclaimer">هل انت متأكد من رفض الطلب ؟ اذا نعم من فضلك اخبرنا عن السبب.</string>
+    <string name="reject_order_other_disclaimer">من فضلك اخبرنا عن السبب</string>
+    <string name="cancel_order_disclaimer">.هل انت متأكد من الغاءالطلب ؟ \nسبب الإلغاء</string>
+    <string name="your_reason">السبب الخاص بك</string>
+    <string name="start_time">وقت البداية</string>
+
+    <string name="order_for">الطلب ل</string>
+    <string name="search_for_caregiver">ابحث عن مقدم خدمة</string>
+    <string name="credit_card">دفع الكتروني</string>
+    <string name="cash">نقدا</string>
+    <string name="location_name">اسم الموقع</string>
+    <string name="set_location_name">حدد اسم المكان</string>
+    <string name="select_country">اختر المدينة</string>
+    <string name="set_new_location">حدد موقع جديد</string>
+    <string name="select_city">اختر مدينة</string>
+    <string name="set_area">حدد المنطقة</string>
+    <string name="set_street_name">حدد اسم الشارع</string>
+    <string name="set_building_number">حدد رقم/اسم المبنى</string>
+    <string name="select_floor_number">اختر رقم/اسم الطابق</string>
+    <string name="order_cancellation">الغاء الطلب</string>
+    <string name="are_you_sure_you_want_cancel_this_order">هل انت متأكد من الغاء الطلب؟</string>
+    <string name="how_much_you_received">كم استلمت؟</string>
+    <string name="add_new_services">اضف خدمة جديدة</string>
+    <string name="finish_order">انهاء الطلب</string>
+    <string name="please_select_one_sub_service_at">من فضلك اختار خدمة فرعيه واحدة على الاقل</string>
+    <string name="suggested">المقترح</string>
+    <string name="favourite">المفضلين</string>
+    <string name="search_results">بحث النتائج</string>
+    <string name="filter">تصنيف</string>
+    <string name="enter_caregiver_id">ادخل هوية مقدم الخدمه</string>
+    <string name="confirm">موافقة</string>
+    <string name="are_you_satisfied_with_the_level_of_this_service">هل انت راض عن هذه المستوى من الخدمة؟</string>
+    <string name="close">اغلاق</string>
+    <string name="rate">تقييم</string>
+    <string name="evaluation">تقييم</string>
+    <string name="commitment_to_the_appointment">الالتزام بالمواعيد</string>
+    <string name="location_readiness">Location Readiness</string>
+    <string name="providing_customized_tools">توفير ادوات مخصصة</string>
+    <string name="hospitality_literature">ادب الضيافة</string>
+    <string name="address_accuracy">ضبط الموقع</string>
+    <string name="description">الملخص التعريفي</string>
+    <string name="cancel_order">الغاء الطلب</string>
+    <string name="order_rejected_message">تم رفض هذا الطلب</string>
+    <string name="order_canceled_message">تم الغاء هذا الطلب</string>
+    <string name="we_hope_you_doing_well">نتمنى ان تكون ابليت حسنا ,وتحصل على طلبات جديدة</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="active_order">طلب فعال</string>
+    <string name="great_job">عمل عظيم</string>
+    <string name="job_finished_successfully">لقد قمت بانهاء هذا الطلب بنجاح</string>
+    <string name="service_error">يجب ان تكون قدمت الخدمة</string>
+    <string name="notifications">الاشعارات</string>
+    <string name="delete_notification">حذف الاشعارات</string>
+    <string name="delete_notification_disclaimer">هل انت متأكد انك ترغب في حذف هذا الاشعار؟</string>
+    <string name="order_report">تقرير الطلب</string>
+    <string name="order_report_disclaimer">من فضلك اكتب تقرير تصف به حاله المريض والدواء الذي منحته له</string>
+    <string name="set_new_password">ضع كلمه مرور جديدة</string>
+    <string name="pass_changed_succussfully">تم تغير كلمه مرور بنجاح</string>
+    <string name="new_order_created_successfully">تم انشاء طلب جديد بنجاح</string>
+    <string name="giver_will_contact_you_soon">سيتواصل معك مقدم الخدمه قريبا</string>
+    <string name="save_finish_order">حفظ,وانهاء هذا الطلب</string>
+    <string name="activate_now">فعل الان!</string>
+    <string name="under_review">تحت المراجعه</string>
+    <string name="submit_services_review_title">شكرا لتقديم الخدمات</string>
+    <string name="submit_services_review_disclaimer">سنقوم باستلام شهاداتك لهذه الخدمات وسنعاود الرجوع الليك خلال 72 ساعه</string>
+    <string name="services_need_admin_approval">بعض الخدمات تحتاج لموافقة الادارة</string>
+    <string name="create_same_order">عمل نفس الطلب</string>
+    <string name="reorder">اعاده الطلب</string>
+    <string name="main_services">الخدمات الرئيسية</string>
+    <string name="please_select_giver_first">من فضلك اولا اختر مقدم خدمة</string>
+    <string name="block_caregiver">احظر مقدم الخدمة</string>
+    <string name="block_caregiver_disclaimer">هل انت متأكدانك ترغب بحظر مقدم الخدمة</string>
+    <string name="explanation">تفسير</string>
+    <string name="caregiver_gender">جنس مقدم الخدمة</string>
+    <string name="nationality_number">الرقم الوطني</string>
+    <string name="preferred_caregiver_age">عمر مقدم الخدمه الذي تفضله</string>
+    <string name="years_experience">سنوات الخبرة</string>
+    <string name="reset_all_fields">املا كافه الحقول</string>
+    <string name="blocked">المحظورين</string>
+    <string name="order_now">اطلب الان</string>
+    <string name="service_not_available_disclaimer">هذه الخدمه ليست متاحه حاليا في هذه الدولة</string>
+    <string name="cont">متابعة</string>
+    <string name="choose_deferent_country">اختر دولا مختلفه</string>
+    <string name="total_years_of_experience">المجموع الكلي لسنين الخبرة</string>
+    <string name="please_select_a_wallet">من فضلك اختر حافظة</string>
+    <string name="payment_completed_successfully">تمت عمليه الدفع بنجاح</string>
+    <string name="pay">دفع</string>
+    <string name="no_i_didn_t_receive">لا لم اتلقى</string>
+    <string name="yes_i_received">نعم,تلقيت</string>
+    <string name="Guest_your_need_to_be_login">يجب ان تسجل او تسجل الدخول</string>
+    <string name="Guest_to_your_account">يجب ان تسجل الدخول عن طريق حسابك</string>
+    <string name="block_care_seeker">حظر طالب الخدمه</string>
+    <string name="block_care_seeker_disclaimer">هل انت متأكد انك ترغب بحظر طالب الخدمه؟</string>
+    <string name="validation_select_order_location">يرجى اختيار الموقع</string>
+    <string name="validation_select_order_date_time">يرجى تحديد التاريخ والوقت</string>
+    <string name="validation_select_order_relative_prifile_and_need_material">يرجى تحديد ملف التعريف ملفات المقربين الخاص بك و هل تحتاج إلى بعض المواد</string>
+    <string name="validation_select_order_sub_service">يرجى اختيار الخدمة أولا</string>
+    <string name="payments_history">سجل المدفوعات</string>
+    <string name="error_select_reason">يجب ان تختار سبب</string>
+    <string name="total_earned">أجمالي المستحق</string>
+    <string name="id">الرقم التعريفي</string>
+    <string name="payment_method">طرق الدفع</string>
+    <string name="payment_update_success">تم تحديث طريقة الدفع بنجاح</string>
+    <string name="schedule_summary">ملخص الجدول</string>
+    <string name="seeker_intro_first_title">اختر الممارس الصحي المناسب واحجز مباشرة</string>
+    <string name="seeker_intro_second_title">حدد مكان الخدمة المناسب واحجز مباشرة</string>
+    <string name="seeker_intro_third_title">اهتم بصحة بأقاربك واحجز مباشرة</string>
+    <string name="seeker_intro_first_desc">يمكنك العثور على خيارات متعددة من الممارسين الصحيين الراغبين بتقديم الرعاية</string>
+    <string name="seeker_intro_second_desc">يمكنك اختيار الزمان والمكان المناسب للحصول على الممارس الصحي الأنسب</string>
+    <string name="seeker_intro_third_desc">امن الرعاية الصحية اللازمة لأحبابك من خلال طلب الممارس الصحي الانسب لهم</string>
+    <string name="giver_intro_first_title">كن معنا شريكا في تحسين المهن الصحية واصنع الفرق</string>
+    <string name="giver_intro_second_title">كن انت مدير نفسك، وساعد الاخرين لعيش حياة افضل</string>
+    <string name="giver_intro_third_title">امتلك وقتك، تميز بعملك وارفع دخلك</string>
+    <string name="professional_license">الرخصة المهنية</string>
+    <string name="replace_photo">تغيير الصورة</string>
+    <string name="contact_customer_support">أتصل بمركز المساعدة</string>
+    <string name="customer_number_not_available"> نعتذر رقم مركز المساعدة غير متوفر حاليا</string>
+    <string name="caregiver_language">لغة مقدم الخدمة</string>
+    <string name="summry">الملخص</string>
+    <string name="appointment">الموعد</string>
+    <string name="ascending">تصاعدي</string>
+    <string name="descending">تنازلي</string>
+    <string name="sorting_type">نوع الفرز</string>
+    <string name="wecare_payment_disclaimer">سيتم تعليق حسابك اذا كان لديك 100 دينار اردني لشركة نحن نرعاك،يرجى دفع هذا المبلغ المستحق لشركة نحن نرعاك.</string>
+    <string name="get_directions">الاتجاهات</string>
+    <string name="location_not_available">الموقع غير متوفر</string>
+    <string name="total_amount">اجمالي المبلغ</string>
+
+    <string name="we_will_contact_you_soon_to_proceed_create_your_account_and_add_your_staff">سوف نتواصل معك قريبا لاكمال انشاء حسابك.</string>
+    <string name="organization">المنظمة</string>
+    <string name="individual">شخصي</string>
+    <string name="you_didn_t_receive_activation_code">لم تستلم رمز التفعيل؟</string>
+    <string name="activate">تفعيل</string>
+    <string name="activation_code">رمز التفعيل</string>
+    <string name="please_enter_the_activation_code_that_has_been_sent_via_message_at_your_number">يرجى إدخال رمز التفعيل الذي تم إرساله عبر رسالة على رقمك</string>
+    <string name="activation_code_email">رجاءا تفقد ايميلك، لقد ارسلنا رمز من خمس خانات يرجى ادخاله ومن ثم ادخال الرمز السري الجديد. </string>
+    <string name="register">تسجيل</string>
+    <string name="fees_per_order">الرسوم لكل طلب</string>
+    <string name="midterm">نصف سنوي</string>
+    <string name="yearly">سنوي</string>
+    <string name="quarterly">فصلي</string>
+    <string name="or">او</string>
+    <string name="membership_fees">رسوم الاشتراك</string>
+    <string name="done">تم</string>
+    <string name="contact_person">الشخص الذي يمكن الاتصال به</string>
+    <string name="country_of_service">بلد تقديم الخدمة</string>
+    <string name="country_of_submitting_service">بلد تقديم الخدمة</string>
+    <string name="country_of_service_seeker">بلد طلب الخدمة</string>
+
+    <string name="city">المدينة</string>
+    <string name="city_optional">المدينة(أختياري)</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="membership_type">رسوم الاشتراك</string>
+    <string name="organization_code">رمز المنظمة</string>
+    <string name="number_of_caregivers">عدد مقدمي الرعاية الصحية</string>
+    <string name="new_account_created_successfully">تم إنشاء حساب جديد بنجاح</string>
+    <string name="dialog_please_activate_your_account_by_entering_the_code_sent_to_you_via_message">يرجى تفعيل حسابك عن طريق إدخال الرمز المرسل إليك عبر الرسالة</string>
+    <string name="check_your_messages">تفقد رسائلك</string>
+    <string name="account_type">نوع الحساب</string>
+    <string name="choose_a_match_and_book_instantly">Choose a match and book instantly</string>
+    <string name="we_find_thousand_of_people_who_want_to_save_you">We Find thousand of people who want to save you</string>
+    <string name="we_ll_show_you_great_caregivers_who_love_working_with_families_like_yours">We’ll show you great caregivers who love working with families like yours</string>
+    <string name="or_sign_in_by">أو تسجيل الدخول بواسطة</string>
+    <string name="location_settings">إعدادات الموقع</string>
+    <string name="enable">تمكين</string>
+    <string name="active">مفعلة</string>
+    <string name="under_verification">قيد التفعيل</string>
+    <string name="not_signed">غير مضافة</string>
+    <string name="welcome">مرحبا!</string>
+    <string name="please_choose_your_language">الرجاء إختيار اللغة</string>
+    <string name="please_fill_all_required_fields">يرجى تعبئة جميع الحقول المطلوبة</string>
+    <string name="clear_all_notifications">مسح جميع الاشعارات</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_your_email_or_mobile_number_number">يرجى العلم بأنك ستحتاج للاتصال بمركز المساعدة لتغيير البريد الالكتروني او رقم الهاتف</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_your_membership_type">يرجى العلم بأنك ستحتاج للاتصال بمركز المساعدة لتغيير نوع الاشتراك</string>
+
+    <string name="from_start">من البداية</string>
+    <string name="this_month">هذا الشهر</string>
+    <string name="old_balance">الرصيد القديم</string>
+    <string name="vat_or_tax">الضريبة المضافة او الضريبة</string>
+    <string name="fee">النسبة %</string>
+    <string name="zero_value">0</string>
+    <string name="online">الدفع الالكتروني</string>
+    <string name="g_total">المجموع النهائي</string>
+    <string name="the_change">الباقي</string>
+    <string name="if_you_want_to_change_any_other_information_like_the_email_or_phone_number_please_contact_wecare">اذا كنت تريد تغيير اي معلومات اخرى مثل البريد الالكتروني او رقم الهاتف، فيرجى الاتصال ب WeCare</string>
+    <string name="conform_phone_number">تأكيد رقم الهاتف</string>
+    <string name="confirm_phone_number_disclaimer">هل أنت متأكد من رقم هاتفك</string>
+    <string name="please_note_that_the_password_length_should_be_at_least_6_digits">يرجى العلم ان كلمة المرور يجب ان تتكون على الاقل من ٦ خانات.</string>
+    <string name="please_note_you_need_to_contact_support_center_in_order_to_edit_country_of_service">يرجى العلم بأنك ستحتاج للاتصال بمركز المساعدة لتغيير بلد الخدمة</string>
+
+    <string name="appearance">المظهر</string>
+    <string name="cleanliness">النظافة</string>
+    <string name="performance">الاداء</string>
+    <string name="time_attendance">وقت الحضور</string>
+    <string name="quality_of_service">جودة الخدمة</string>
+    <string name="upload_identity_document">قم بتحميل صورة وثيقة الهوية</string>
+    <string name="identity_doc_uploaded_succussfully">تم تحميل وثيقة الهوية الى المرفقات بنجاح</string>
+    <string name="order_completed">اكتمال الطلب</string>
+    <string name="order_completed_disclaimer">تم اكتمال الطلب بنجاح، يرجى تقييم مقدم الخدمة لإنهاء الطلب.</string>
+    <string name="not_now">ليس الأن</string>
+    <string name="rate_giver">قيم مقدم الخدمة</string>
+    <string name="currently_working">تعمل حاليا</string>
+
+
+</resources>

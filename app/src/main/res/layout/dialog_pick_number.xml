@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <!--<variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.rating.RateUsViewModel" />-->
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <NumberPicker
+            android:id="@+id/numberPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="64dp" />
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numberPicker"
+            android:layout_marginStart="@dimen/spacing_big"
+            android:layout_marginTop="98dp"
+            android:layout_toEndOf="@id/numberPicker"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/button_cancel"
+            android:layout_alignBottom="@id/button_cancel"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_toStartOf="@id/numberPicker"
+            android:text="@string/general_OK" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ureed.ureed.ui.main.MainActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.UserProfileViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_big">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/myProfile_img"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_xlarg"
+                        app:imageUrl="@{viewModel.picURL}"
+                        app:srcCompat="@drawable/default_profile_picture" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/ContentText_White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@{viewModel.userName}"
+                        android:textSize="@dimen/text_size_big"
+                        tools:text="Miho" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_little"
+                        android:text="@{viewModel.email}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_normal"
+                        tools:text="235234532" />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:numStars="5"
+                        android:progressBackgroundTint="@color/white"
+                        android:progressTint="@color/white"
+                        android:stepSize="0.25"
+                        app:rating="@{viewModel.rating}"
+                        tools:rating="3" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dip"
+                    android:background="@color/colorPrimary" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:onClick="@{() -> viewModel.personalInfoClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/personal_information"
+                            android:textColor="@color/colorPrimary"
+                            tools:text="@string/my_informations" />
+
+                        <include layout="@layout/separator_view" />
+
+                        <TextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:onClick="@{() -> viewModel.LocationsClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/locations"
+                            android:textColor="@color/colorPrimary" />
+
+                        <include layout="@layout/separator_view" />
+
+                        <TextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:onClick="@{() -> viewModel.relativeProfilesClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/relative_profile_title"
+                            android:textColor="@color/colorPrimary" />
+
+                        <include layout="@layout/separator_view" />
+
+                        <TextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:onClick="@{() -> viewModel.paymentMethodClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/payment_methods"
+                            android:textColor="@color/colorPrimary" />
+
+                        <include layout="@layout/separator_view" />
+
+                        <TextView
+                            style="@style/ContentText_Black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/ic_arrow_right"
+                            android:onClick="@{() -> viewModel.favoriteAndBlockedClicked()}"
+                            android:padding="@dimen/spacing_normal"
+                            android:text="@string/favourite_and_blocked_caregivers"
+                            android:textColor="@color/colorPrimary" />
+
+                        <include layout="@layout/separator_view" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+
+</layout>

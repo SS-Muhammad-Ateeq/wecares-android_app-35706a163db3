@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.wecare.android.ui.main.profile.userProfile.educationcertificates.EducationCertificatesViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include layout="@layout/toolbar"></include>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/light_gray"
+                android:orientation="vertical"
+                android:id="@+id/scrollView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/rootLayout">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <!--<androidx.appcompat.widget.AppCompatTextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_margin="@dimen/spacing_normal"-->
+                            <!--android:text="@string/bio"-->
+                            <!--android:textSize="@dimen/text_size_big" />-->
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                            android:layout_marginBottom="@dimen/spacing_tiny"
+                            android:id="@+id/bioLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/bio_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/bio"
+                                android:inputType="textMultiLine"
+                                android:lines="3"
+                                android:enabled="false"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}"
+                                 />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/education_instructions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="70dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/spacing_large"
+                        android:onClick="@{() -> viewModel.eductionInstructions()}"
+                        android:paddingRight="@dimen/spacing_large">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-light"
+                            android:text="@string/read_instruction"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/gray" />
+
+                        <View
+                            android:layout_width="@dimen/spacing_large"
+                            android:layout_height="wrap_content" />
+
+                        <ImageButton
+                            android:layout_width="@dimen/spacing_large"
+                            android:layout_height="@dimen/spacing_large"
+                            android:background="@android:color/transparent"
+                            android:onClick="@{() -> viewModel.eductionInstructions()}"
+                            android:tint="@color/colorAccent"
+                            app:srcCompat="@drawable/ic_info" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/spacing_normal"
+                            android:text="@string/professional_license"
+                            android:textSize="@dimen/text_size_big" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/place_of_issue"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingEnd="@dimen/spacing_small"
+                            />
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/place_of_issue_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/place_of_issue_tv"
+                                style="@style/ContentText_Black"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:onClick="@{() -> viewModel.placeOfIssueClicked()}"
+                                android:padding="@dimen/spacing_normal"
+                                android:text="@string/place_of_issue"
+                                android:enabled="false"
+                                />
+
+                            <include layout="@layout/separator_view" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                            android:id="@+id/licenseLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/license_number_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:inputType="number"
+                                android:hint="@string/license_number"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}"
+                                android:enabled="false"
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                            android:id="@+id/issuerlayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/issuer_nameedt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:hint="@string/issuer_name"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}"
+                                android:enabled="false"
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--<RelativeLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="horizontal"-->
+                            <!--android:padding="@dimen/spacing_normal">-->
+
+                            <!--<androidx.appcompat.widget.AppCompatTextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:text="@string/license_copy"-->
+                                <!--android:layout_centerVertical="true"/>-->
+
+                            <!--<androidx.appcompat.widget.AppCompatImageView-->
+                                <!--android:id="@+id/licenseCopyImg"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_alignParentEnd="true"-->
+                                <!--android:src="@drawable/ic_certificate"/>-->
+
+                        <!--</RelativeLayout>-->
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/education"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addEducationImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addEducation()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/educationLayout">
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experience"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addExperienceImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addExperience()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/CommonTextInputLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_little"
+                            android:layout_marginEnd="@dimen/spacing_little"
+                            android:gravity="center"
+                            android:textColorHint="@color/gray"
+                            app:hintTextAppearance="@style/TextAppearence.App.TextInputLayout"
+                            android:id="@+id/yearsExperienceLayout">
+
+                            <!--style="@style/TextStyle"-->
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/years_experience_edt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/white"
+                                android:cursorVisible="true"
+                                android:drawablePadding="@dimen/spacing_small"
+                                android:inputType="number"
+                                android:hint="@string/total_years_of_experience"
+                                app:validateEmpty="@{true}"
+                                app:validateEmptyMessage="@{@string/general_required_field}"
+                                android:enabled="false"
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/experienceLayout">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/malpractice_insurance"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addMalpracticeInsuranceImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addMalInsurance()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/malpracticeInsuranceLayout">
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/language"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addLanguageImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addLanguage()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/languageLayout">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/certificates"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addCertificateImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addCertificate()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/certificateLayout">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/spacing_normal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/attachment"
+                                android:layout_centerVertical="true"
+                                android:textSize="@dimen/text_size_big"/>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/addAttachmentImg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_add"
+                                android:onClick="@{() -> viewModel.addAttachment()}"
+                                android:visibility="gone"/>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:id="@+id/attachmentLayout">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/address_looking_up"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+
+</layout>
